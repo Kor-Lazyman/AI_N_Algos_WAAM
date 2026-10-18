@@ -1,7 +1,0 @@
-﻿model,makespan_seconds,makespan_DD_HH_MM_SS,calculation_seconds,calculation_DD_HH_MM_SS,validator,notes
-01 (Honeycomb),,미측정,,미측정,미측정,training/test STL 01–06 전체 평가 없음
-02 (Spiral),,미측정,,미측정,미측정,training/test STL 01–06 전체 평가 없음
-03 (Triangular truss),,미측정,,미측정,미측정,training/test STL 01–06 전체 평가 없음
-04 (Motor inner),,미측정,,미측정,미측정,training/test STL 01–06 전체 평가 없음
-05 (Twisted shell),,미측정,,미측정,미측정,training/test STL 01–06 전체 평가 없음
-06 (Angle frame),,미측정,,미측정,미측정,training/test STL 01–06 전체 평가 없음

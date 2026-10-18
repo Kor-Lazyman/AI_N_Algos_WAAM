@@ -1,0 +1,290 @@
+{
+  "version": "1.0.2-minor",
+  "environment": "layer_multi_robot_placement_minor_v1",
+  "seed": 10042,
+  "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+  "step_unit": "layer",
+  "episode_reward": 2.671664632048386,
+  "episode_length": 1,
+  "schedule_complete": true,
+  "completed_layers": 1,
+  "total_layers": 1,
+  "status": "PASS",
+  "success": true,
+  "iou": 0.9962085460166491,
+  "makespan_s": 256.98431306326216,
+  "partial_makespan_s": 256.98431306326216,
+  "failure_reason": null,
+  "steps": [
+    {
+      "version": "1.0.2-minor",
+      "environment": "layer_multi_robot_placement_minor_v1",
+      "completed_layers": 1,
+      "total_layers": 1,
+      "schedule_complete": true,
+      "makespan_s": 256.98431306326216,
+      "iou": 0.9962085460166491,
+      "placement": {
+        "schema": "stl_global_xy_v1",
+        "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\Minor\\result\\training\\minor_40updates_20261018_152213\\inputs\\validation\\04_04_cross",
+        "action": [
+          -0.008548409678041935,
+          -0.06852348893880844
+        ],
+        "translation_xyz_mm": [
+          -2.1371024195104837,
+          -17.13087223470211,
+          0.0
+        ],
+        "application": "whole_mesh_before_slicing",
+        "same_translation_for_every_layer": true
+      },
+      "layer_index": 0,
+      "layer_iou": 0.9962085460166491,
+      "layer_shape_passed": true,
+      "layer_duration_s": 256.98431306326216,
+      "time_reference_s": 237.74168459936362,
+      "robot_utilization": [
+        0.5818407747905804,
+        0.41566405515903637,
+        0.11419020911803708
+      ],
+      "mean_robot_utilization": 0.3705650130225513,
+      "robot_idle_s": [
+        107.46036124150864,
+        150.1651713831273,
+        227.63922061451314
+      ],
+      "idle_factor": 2.888304960932346,
+      "weighted_layer_duration_s": 742.2490663024112,
+      "generated_segments": 71,
+      "robot_segment_counts": [
+        39,
+        28,
+        4
+      ],
+      "reassigned_segments": 0,
+      "serial_fallback": true,
+      "reward_iou": 0.0,
+      "reward_invalid": 0.0,
+      "reward_branch": "performance",
+      "reward_time": 2.671664632048386,
+      "reward_terminal": 0.0,
+      "robot_deposition_s": [
+        128.21582213058517,
+        85.68998659725146,
+        8.738238373066935
+      ],
+      "robot_travel_s": [
+        21.308129691168347,
+        21.129155082883404,
+        20.60685407568208
+      ],
+      "robot_wait_s": [
+        107.46036124150865,
+        150.1651713831273,
+        227.63922061451314
+      ],
+      "robot_deposition_utilization": [
+        0.49892470323284716,
+        0.33344442536520524,
+        0.034003003019549415
+      ],
+      "mean_deposition_utilization": 0.28879071053920063,
+      "active_deposition_robots": 3,
+      "deposition_single_s": 222.64404710090355,
+      "deposition_2plus_s": 0.0,
+      "deposition_3_s": 0.0,
+      "total_wait_s": 485.2647532391491,
+      "schedule_method": "nearest_base_staggered",
+      "schedule_checks": 14,
+      "quick_rejections": 147,
+      "start_offsets_s": [
+        107.46036124150865,
+        0.0,
+        93.46674897011802
+      ],
+      "baseline_duration_s": 293.6589131570603,
+      "scheduler_reduction_s": 36.67460009379812,
+      "terminal_status": "PASS",
+      "terminal_error": null,
+      "path_parameters": {
+        "hatch_angle_deg": 135.0,
+        "spacing_factor": 0.9,
+        "start_corner": 2,
+        "reverse": true,
+        "partition_axis": "x",
+        "quotas": [
+          0.5,
+          0.25,
+          0.25
+        ],
+        "robot_order": [
+          2,
+          3,
+          1
+        ]
+      },
+      "action": [
+        6,
+        1,
+        2,
+        1,
+        0,
+        1,
+        3
+      ],
+      "reward": 2.671664632048386,
+      "step_wall_time_s": 1.062590799992904
+    }
+  ],
+  "terminal_validation_reused": true,
+  "validation": {
+    "schema_version": "4.0",
+    "validator_version": "1.0.1",
+    "status": "PASS",
+    "input": {
+      "directory": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\Minor\\result\\training\\minor_40updates_20261018_152213\\validation\\step_00001024\\job_04\\episode_000\\input",
+      "trajectory_rows": 127,
+      "target_watertight": true
+    },
+    "schedule": {
+      "makespan_s": 256.98431306326216,
+      "robot_completion_s": {
+        "1": 256.98431306326216,
+        "2": 256.98431306326216,
+        "3": 256.98431306326216
+      },
+      "workload_imbalance_s": 0.0,
+      "normalized_imbalance": 0.0
+    },
+    "reach": {
+      "distance_basis": "XY",
+      "passed": true,
+      "robots": [
+        {
+          "robot_id": 1,
+          "passed": true,
+          "xy_reach_radius_mm": 2500.0,
+          "maximum_xy_distance_mm": 1180.6486734587334,
+          "minimum_xy_margin_mm": 1319.3513265412666,
+          "xy_utilization_ratio": 0.47225946938349334,
+          "xy_violation_point_count": 0,
+          "first_xy_violation_s": null,
+          "last_xy_violation_s": null
+        },
+        {
+          "robot_id": 2,
+          "passed": true,
+          "xy_reach_radius_mm": 2500.0,
+          "maximum_xy_distance_mm": 1191.1955468135973,
+          "minimum_xy_margin_mm": 1308.8044531864027,
+          "xy_utilization_ratio": 0.4764782187254389,
+          "xy_violation_point_count": 0,
+          "first_xy_violation_s": null,
+          "last_xy_violation_s": null
+        },
+        {
+          "robot_id": 3,
+          "passed": true,
+          "xy_reach_radius_mm": 2500.0,
+          "maximum_xy_distance_mm": 1181.9385280787144,
+          "minimum_xy_margin_mm": 1318.0614719212856,
+          "xy_utilization_ratio": 0.47277541123148575,
+          "xy_violation_point_count": 0,
+          "first_xy_violation_s": null,
+          "last_xy_violation_s": null
+        }
+      ]
+    },
+    "collision": {
+      "passed": true,
+      "collision_event_count": 0,
+      "arm_envelope": {
+        "enabled": true,
+        "passed": true,
+        "event_count": 0,
+        "minimum_safety_margin_mm": 297.2433841506114,
+        "centerline_distance_at_worst_mm": 547.2433841506114,
+        "required_distance_at_worst_mm": 250.0,
+        "capsule_surface_clearance_at_worst_mm": 347.2433841506114,
+        "pair": [
+          1,
+          3
+        ],
+        "time_s": 114.83192717089575,
+        "closest_points_xy_mm": [
+          [
+            -296.2742614746094,
+            -177.6640625
+          ],
+          [
+            -12.609110832214355,
+            290.3203430175781
+          ]
+        ],
+        "tcp_positions_xy_mm": [
+          [
+            -296.2742614746094,
+            -177.6640625
+          ],
+          [
+            1000.0,
+            -600.0
+          ],
+          [
+            -12.609110832214355,
+            290.3203430175781
+          ]
+        ]
+      },
+      "tcp_radius": {
+        "enabled": true,
+        "passed": true,
+        "event_count": 0,
+        "minimum_distance_mm": 547.2433841506114,
+        "required_distance_at_minimum_mm": 40.0,
+        "pair": [
+          1,
+          3
+        ],
+        "time_s": 114.83192717089575
+      }
+    },
+    "shape": {
+      "passed": true,
+      "target_volume_mm3": 11264.0,
+      "deposited_volume_mm3": 11283.260524740002,
+      "intersection_volume_mm3": 11252.217945279996,
+      "underfill_volume_mm3": 11.782054719999971,
+      "overfill_volume_mm3": 31.042624580001487,
+      "coverage": 0.998954007926136,
+      "underfill_ratio": 0.0010459920738636339,
+      "overfill_ratio": 0.002755914824218882,
+      "iou": 0.9962085460166491,
+      "failed_layer_count": 0,
+      "evaluated_layer_count": 1,
+      "failed_layer_ratio": 0.0,
+      "target_mesh_volume_mm3": 11264.000038146973,
+      "target_volume_discrepancy_ratio": 3.3866275325870395e-09
+    },
+    "failure_reasons": [],
+    "issues": [],
+    "output_directory": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\Minor\\result\\training\\minor_40updates_20261018_152213\\validation\\step_00001024\\job_04\\episode_000\\validation"
+  },
+  "artifacts": {
+    "status": "READY",
+    "validation_status": "PASS",
+    "trajectory": "input/trajectory.csv",
+    "deposited_stl": "deposited.stl",
+    "layers": 1,
+    "input_sha256": {
+      "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+      "trajectory.csv": "5b85a97decba674c5be6922a8ad2ef14bff91d776a8af318a3d502d1d87c0175",
+      "target.stl": "476e87dc3c01957d22b58dd706a59881620ccd68e7d8ecb22693d996b816a031"
+    },
+    "deposited_stl_sha256": "5dcfd1d9b2dd9a47474d098da4d49a7957ef6140975d2b43330c6e07b997d0b0",
+    "wall_time_s": 0.04475219995947555
+  },
+  "wall_time_s": 1.2326362999738194
+}

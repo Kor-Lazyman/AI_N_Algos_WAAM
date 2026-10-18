@@ -1,0 +1,7 @@
+﻿input,calculation_time_s,makespan_s,validator_status,validator_passed,episodes
+00_sample,0.616,83.45248684138,PASS,True,1
+01_rectangle,0.679,586.1977621957908,PASS,True,1
+02_triangle,0.459,223.14580787595526,PASS,True,1
+03_l_shape,0.843,562.9236284295214,PASS,True,1
+04_cross,0.452,292.12784647543265,PASS,True,1
+05_ring,0.673,347.0695015397474,PASS,True,1

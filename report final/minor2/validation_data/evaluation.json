@@ -1,0 +1,286 @@
+{
+  "version": "1.0.2-minor_2",
+  "environment": "layer_path_reward_minor_2_v1",
+  "model_timesteps": 256,
+  "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+  "split": "validation_set",
+  "validation_jobs": [
+    {
+      "id": "00_sample",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\00_sample",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\validation\\00_00_sample",
+      "input_sha256": {
+        "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+        "target.stl": "fc5bb5ca0ef7ecdeb8499b69f077c66d7564575e036aa903e53f62c7a66eb451"
+      }
+    },
+    {
+      "id": "01_rectangle",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\01_rectangle",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\validation\\01_01_rectangle",
+      "input_sha256": {
+        "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+        "target.stl": "4a8a4d87de9784e9798a9266c732305af9c2e77e16f9bca135db64e457747767"
+      }
+    },
+    {
+      "id": "02_triangle",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\02_triangle",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\validation\\02_02_triangle",
+      "input_sha256": {
+        "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+        "target.stl": "a20b5c1847e959708e39e007a34c230a4e6f7d177d1d810940a4f90e78acf47c"
+      }
+    },
+    {
+      "id": "03_l_shape",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\03_l_shape",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\validation\\03_03_l_shape",
+      "input_sha256": {
+        "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+        "target.stl": "4a682b69182429ced581923e0add2e8e9e2f495a6c722cdf9cd573a6a36bee9b"
+      }
+    },
+    {
+      "id": "04_cross",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\04_cross",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\validation\\04_04_cross",
+      "input_sha256": {
+        "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+        "target.stl": "c721ca7b21a64464540d8c40b31dec972ab5c0089b2d6704b60ba29a8034ffc5"
+      }
+    },
+    {
+      "id": "05_ring",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\05_ring",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\validation\\05_05_ring",
+      "input_sha256": {
+        "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+        "target.stl": "e12c3b0b666933e349a9724dc5bcb2f051e8b46c925a8fc7c248c80f438c8d2d"
+      }
+    }
+  ],
+  "seeds": [
+    10042
+  ],
+  "summary": {
+    "step": 256,
+    "episodes": 6,
+    "step_unit": "layer",
+    "completion_rate": 1.0,
+    "pass_rate": 1.0,
+    "success_rate": 1.0,
+    "ep_rew_mean": 2.614473831370052,
+    "ep_len_mean": 1.3333333333333333,
+    "iou_mean": 0.9953708447376576,
+    "makespan_completed_mean_s": 349.6124559060522,
+    "makespan_success_mean_s": 349.6124559060522,
+    "score": 1.0
+  },
+  "episodes": [
+    {
+      "version": "1.0.2-minor_2",
+      "environment": "layer_path_reward_minor_2_v1",
+      "seed": 10042,
+      "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+      "step_unit": "layer",
+      "episode_reward": 0.694966480461065,
+      "episode_length": 1,
+      "schedule_complete": true,
+      "completed_layers": 1,
+      "total_layers": 1,
+      "status": "PASS",
+      "success": true,
+      "iou": 0.9888721209593256,
+      "makespan_s": 83.45248684138,
+      "partial_makespan_s": 83.45248684138,
+      "failure_reason": null,
+      "terminal_validation_reused": true,
+      "artifacts": {
+        "status": "READY",
+        "validation_status": "PASS",
+        "trajectory": "input/trajectory.csv",
+        "deposited_stl": "deposited.stl",
+        "layers": 1,
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "trajectory.csv": "c51d07f4bbda2205e616d4e1b1a80cb8672884c2aee647a0e5db66205483b2aa",
+          "target.stl": "fc5bb5ca0ef7ecdeb8499b69f077c66d7564575e036aa903e53f62c7a66eb451"
+        },
+        "deposited_stl_sha256": "a6653f6e6d60a7011344667b57ee1af97b16d07f6512b2e45fac65edb3a17ece",
+        "wall_time_s": 0.034819900000002235
+      },
+      "wall_time_s": 0.2708639999618754
+    },
+    {
+      "version": "1.0.2-minor_2",
+      "environment": "layer_path_reward_minor_2_v1",
+      "seed": 10042,
+      "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+      "step_unit": "layer",
+      "episode_reward": 4.41106805244905,
+      "episode_length": 2,
+      "schedule_complete": true,
+      "completed_layers": 2,
+      "total_layers": 2,
+      "status": "PASS",
+      "success": true,
+      "iou": 0.9974746065896756,
+      "makespan_s": 585.8829061543096,
+      "partial_makespan_s": 585.8829061543096,
+      "failure_reason": null,
+      "terminal_validation_reused": true,
+      "artifacts": {
+        "status": "READY",
+        "validation_status": "PASS",
+        "trajectory": "input/trajectory.csv",
+        "deposited_stl": "deposited.stl",
+        "layers": 2,
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "trajectory.csv": "a773cd7b9ba978cd924067df91fc92b87ce1d3894d1366dc3ce062ed9b98d509",
+          "target.stl": "4a8a4d87de9784e9798a9266c732305af9c2e77e16f9bca135db64e457747767"
+        },
+        "deposited_stl_sha256": "545ae7f8fdcb455a8aa384df01301246ee061698a6a367a3a42581dfec1c45cb",
+        "wall_time_s": 0.04516350000631064
+      },
+      "wall_time_s": 0.6810722000082023
+    },
+    {
+      "version": "1.0.2-minor_2",
+      "environment": "layer_path_reward_minor_2_v1",
+      "seed": 10042,
+      "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+      "step_unit": "layer",
+      "episode_reward": 1.9920004658821517,
+      "episode_length": 1,
+      "schedule_complete": true,
+      "completed_layers": 1,
+      "total_layers": 1,
+      "status": "PASS",
+      "success": true,
+      "iou": 0.9954255121091751,
+      "makespan_s": 222.3457807159187,
+      "partial_makespan_s": 222.3457807159187,
+      "failure_reason": null,
+      "terminal_validation_reused": true,
+      "artifacts": {
+        "status": "READY",
+        "validation_status": "PASS",
+        "trajectory": "input/trajectory.csv",
+        "deposited_stl": "deposited.stl",
+        "layers": 1,
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "trajectory.csv": "f5753d0ee4b48ab11e21f2bca019c23d0ee0f7f54fdeb02573aa5ecbfc904416",
+          "target.stl": "a20b5c1847e959708e39e007a34c230a4e6f7d177d1d810940a4f90e78acf47c"
+        },
+        "deposited_stl_sha256": "18752b5e6a0a4cfdb0637ce438909988912ca88d6b20512e919f5126cfdb4e37",
+        "wall_time_s": 0.041096100001595914
+      },
+      "wall_time_s": 0.35326540004462004
+    },
+    {
+      "version": "1.0.2-minor_2",
+      "environment": "layer_path_reward_minor_2_v1",
+      "seed": 10042,
+      "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+      "step_unit": "layer",
+      "episode_reward": 4.277844878140881,
+      "episode_length": 2,
+      "schedule_complete": true,
+      "completed_layers": 2,
+      "total_layers": 2,
+      "status": "PASS",
+      "success": true,
+      "iou": 0.9965332489424504,
+      "makespan_s": 564.6832832877049,
+      "partial_makespan_s": 564.6832832877049,
+      "failure_reason": null,
+      "terminal_validation_reused": true,
+      "artifacts": {
+        "status": "READY",
+        "validation_status": "PASS",
+        "trajectory": "input/trajectory.csv",
+        "deposited_stl": "deposited.stl",
+        "layers": 2,
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "trajectory.csv": "37f0001879c5299bbaaf2fd59a67ec397a3bd26cacd2d1c474f10a611b058dc3",
+          "target.stl": "4a682b69182429ced581923e0add2e8e9e2f495a6c722cdf9cd573a6a36bee9b"
+        },
+        "deposited_stl_sha256": "2a855a8ddcdf7edc20debc41d75e3771b513dad76efd23213731e0f5aa360e6f",
+        "wall_time_s": 0.048393200035206974
+      },
+      "wall_time_s": 0.6084552999818698
+    },
+    {
+      "version": "1.0.2-minor_2",
+      "environment": "layer_path_reward_minor_2_v1",
+      "seed": 10042,
+      "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+      "step_unit": "layer",
+      "episode_reward": 2.067418782096883,
+      "episode_length": 1,
+      "schedule_complete": true,
+      "completed_layers": 1,
+      "total_layers": 1,
+      "status": "PASS",
+      "success": true,
+      "iou": 0.9962078138950382,
+      "makespan_s": 292.12784647543265,
+      "partial_makespan_s": 292.12784647543265,
+      "failure_reason": null,
+      "terminal_validation_reused": true,
+      "artifacts": {
+        "status": "READY",
+        "validation_status": "PASS",
+        "trajectory": "input/trajectory.csv",
+        "deposited_stl": "deposited.stl",
+        "layers": 1,
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "trajectory.csv": "3394bf2e9d36dec2e06a30bcdb3b7fc2c50e189e9e2dcd4296e16a6bbf042d07",
+          "target.stl": "c721ca7b21a64464540d8c40b31dec972ab5c0089b2d6704b60ba29a8034ffc5"
+        },
+        "deposited_stl_sha256": "d096da7d1090b86754cbe25c59640b8484b62ddb861d8b612d259afc01df9089",
+        "wall_time_s": 0.03674940002383664
+      },
+      "wall_time_s": 0.599266900040675
+    },
+    {
+      "version": "1.0.2-minor_2",
+      "environment": "layer_path_reward_minor_2_v1",
+      "seed": 10042,
+      "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+      "step_unit": "layer",
+      "episode_reward": 2.2435443291902835,
+      "episode_length": 1,
+      "schedule_complete": true,
+      "completed_layers": 1,
+      "total_layers": 1,
+      "status": "PASS",
+      "success": true,
+      "iou": 0.9977117659302805,
+      "makespan_s": 349.18243196156766,
+      "partial_makespan_s": 349.18243196156766,
+      "failure_reason": null,
+      "terminal_validation_reused": true,
+      "artifacts": {
+        "status": "READY",
+        "validation_status": "PASS",
+        "trajectory": "input/trajectory.csv",
+        "deposited_stl": "deposited.stl",
+        "layers": 1,
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "trajectory.csv": "b570589dafe41af83800c29dee3faaa05c163a7c252e4a62f01d2d8938d7c124",
+          "target.stl": "e12c3b0b666933e349a9724dc5bcb2f051e8b46c925a8fc7c248c80f438c8d2d"
+        },
+        "deposited_stl_sha256": "7d52fc8f39dafb842470fd731b9cc29859941aa0d4bbe50d45697a52eafcff88",
+        "wall_time_s": 0.053668999986257404
+      },
+      "wall_time_s": 0.5519793999847025
+    }
+  ]
+}

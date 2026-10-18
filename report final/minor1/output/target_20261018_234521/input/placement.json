@@ -1,0 +1,15 @@
+{
+  "schema": "stl_global_xy_v1",
+  "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.1\\report final\\minor1\\output\\target_20261018_234521\\scenario",
+  "action": [
+    -0.008020961657166481,
+    -0.06926865130662918
+  ],
+  "translation_xyz_mm": [
+    -2.0052404142916203,
+    -17.317162826657295,
+    0.0
+  ],
+  "application": "whole_mesh_before_slicing",
+  "same_translation_for_every_layer": true
+}

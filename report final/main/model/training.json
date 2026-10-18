@@ -1,0 +1,186 @@
+{
+  "version": "1.0.2",
+  "environment": "layer_path_v1",
+  "step_unit": "layer",
+  "status": "completed",
+  "started_at": "2026-10-17T04:49:41.397104+09:00",
+  "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+  "validation_score_metric": "pass_rate",
+  "evaluation_split": "validation_sample",
+  "requested_timesteps": 1024,
+  "reward_weights": {
+    "iou": 1.0,
+    "time": 0.1,
+    "invalid": 2.0,
+    "completion": 1.0,
+    "validation_failure": 1.0
+  },
+  "policy": "MlpPolicy",
+  "ppo": {
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "learning_rate": 0.0003,
+    "n_steps": 64,
+    "batch_size": 32,
+    "seed": 42,
+    "device": "cuda"
+  },
+  "eval_seeds": [
+    10042
+  ],
+  "eval_every_updates": 4,
+  "geometry_device": "cpu",
+  "paths_generated_online": true,
+  "training_trace": "training_layer_trace.jsonl",
+  "tensorboard_enabled": true,
+  "tensorboard_log": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\result\\tensorboard\\layers_1.0.2_20261017_044941_396096_20261017_044941_397104",
+  "wall_time_s": 1591.014091799996,
+  "training_jobs": [
+    {
+      "id": "01",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\train\\01",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\result\\training\\layers_1.0.2_20261017_044941_396096\\inputs\\training\\00_01",
+      "input_sha256": {
+        "config.yaml": "0c6111e4657f0cc4fc3ba0722ab18ccb78a533e7c233e08b185673c8d846c7e7",
+        "target.stl": "c82bfb68b3ee385230db769eab62236205de560ed85abe3ddf3a09d910e4e146"
+      }
+    },
+    {
+      "id": "02",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\train\\02",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\result\\training\\layers_1.0.2_20261017_044941_396096\\inputs\\training\\01_02",
+      "input_sha256": {
+        "config.yaml": "0c6111e4657f0cc4fc3ba0722ab18ccb78a533e7c233e08b185673c8d846c7e7",
+        "target.stl": "1262d0f4ca60a7b0920afc80e9ca77a88f45c356d96b120e4df05787e3582962"
+      }
+    },
+    {
+      "id": "03",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\train\\03",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\result\\training\\layers_1.0.2_20261017_044941_396096\\inputs\\training\\02_03",
+      "input_sha256": {
+        "config.yaml": "0c6111e4657f0cc4fc3ba0722ab18ccb78a533e7c233e08b185673c8d846c7e7",
+        "target.stl": "f5d5dcd1b9126f4a9b104f7913487ab47dc5304b9337a19d0bac284c02326769"
+      }
+    },
+    {
+      "id": "04",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\train\\04",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\result\\training\\layers_1.0.2_20261017_044941_396096\\inputs\\training\\03_04",
+      "input_sha256": {
+        "config.yaml": "0c6111e4657f0cc4fc3ba0722ab18ccb78a533e7c233e08b185673c8d846c7e7",
+        "target.stl": "dc8ec2acec88920ae367ea4dc43bca71c65e0a2e7f2b00dc6efd2eca4742e56c"
+      }
+    },
+    {
+      "id": "05",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\train\\05",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\result\\training\\layers_1.0.2_20261017_044941_396096\\inputs\\training\\04_05",
+      "input_sha256": {
+        "config.yaml": "0c6111e4657f0cc4fc3ba0722ab18ccb78a533e7c233e08b185673c8d846c7e7",
+        "target.stl": "c7ef0f6330b2da30cc1671f5e91471074fb1e6ca7e40027193380d6ef7ccad41"
+      }
+    },
+    {
+      "id": "06",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\train\\06",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\result\\training\\layers_1.0.2_20261017_044941_396096\\inputs\\training\\05_06",
+      "input_sha256": {
+        "config.yaml": "0c6111e4657f0cc4fc3ba0722ab18ccb78a533e7c233e08b185673c8d846c7e7",
+        "target.stl": "0b56e06778553992d12fb47031fff6dc12735d79bdcb49c39a7bb5c96eef12f1"
+      }
+    }
+  ],
+  "validation_job": {
+    "id": "sample_job",
+    "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\environment\\examples\\sample_job",
+    "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\result\\training\\layers_1.0.2_20261017_044941_396096\\inputs\\validation\\sample_job",
+    "input_sha256": {
+      "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+      "target.stl": "fc5bb5ca0ef7ecdeb8499b69f077c66d7564575e036aa903e53f62c7a66eb451"
+    }
+  },
+  "actual_device": "cuda",
+  "policy_parameter_devices": [
+    "cuda:0"
+  ],
+  "spaces": {
+    "action": {
+      "type": "MultiDiscrete",
+      "nvec": [
+        8,
+        3,
+        4,
+        2,
+        2,
+        3,
+        6
+      ],
+      "fields": {
+        "hatch_angle": "0..7 -> 0,22.5,...,157.5 degrees",
+        "hatch_spacing": "0..2 -> bead width * (0.8,0.9,1.0)",
+        "start_corner": "0..3 -> min/min, max/min, min/max, max/max XY",
+        "reverse": "reverse segment sequence and directions",
+        "partition_axis": "0=X, 1=Y; spatial bands weighted by deposition length",
+        "partition_quota": "equal, first-band-heavy, last-band-heavy",
+        "robot_order": "lexicographic permutations of robot IDs 1,2,3"
+      }
+    },
+    "observation": {
+      "shape": [
+        309
+      ],
+      "dtype": "float32"
+    }
+  },
+  "gpu_name": "NVIDIA GeForce RTX 3070 Ti Laptop GPU",
+  "actual_timesteps": 1024,
+  "training_episode_counts": [
+    2,
+    3,
+    3,
+    3,
+    3,
+    2
+  ],
+  "training_step_counts": [
+    12,
+    24,
+    18,
+    150,
+    718,
+    102
+  ],
+  "optimizer_state_devices": {
+    "step": [
+      "cpu"
+    ],
+    "exp_avg": [
+      "cuda:0"
+    ],
+    "exp_avg_sq": [
+      "cuda:0"
+    ]
+  },
+  "last_update_wall_time_s": 57.29719439998735,
+  "last_update_layers_per_s": 1.116983138008833,
+  "best_validation_score": 1.0,
+  "best_step": 256,
+  "best_model": "best_model.zip",
+  "model": "ppo_model.zip",
+  "final_stl_evaluation": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\result\\training\\layers_1.0.2_20261017_044941_396096\\final_stl_evaluation",
+  "final_stl_summary": {
+    "episodes": 6,
+    "step_unit": "layer",
+    "completion_rate": 1.0,
+    "pass_rate": 1.0,
+    "success_rate": 1.0,
+    "ep_rew_mean": 66.19212618193701,
+    "ep_len_mean": 78.5,
+    "iou_mean": 0.9880518359417291,
+    "makespan_completed_mean_s": 88492.75437726601,
+    "makespan_success_mean_s": 88492.75437726601
+  },
+  "final_stl_exports_ready": true,
+  "completed_at": "2026-10-17T05:16:12.411315+09:00"
+}

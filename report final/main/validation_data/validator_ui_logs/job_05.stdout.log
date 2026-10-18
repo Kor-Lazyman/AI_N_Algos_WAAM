@@ -1,0 +1,5 @@
+WAAM Validator is running on http://127.0.0.1:8055/
+Dash is running on http://127.0.0.1:8055/
+
+ * Serving Flask app 'waam_validator.dashboard.app'
+ * Debug mode: off

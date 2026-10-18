@@ -1,7 +1,0 @@
-﻿model,makespan_seconds,makespan_DD_HH_MM_SS,calculation_seconds,calculation_DD_HH_MM_SS,validator,notes
-01 (Honeycomb),2088.921214,00:00:34:48,12.723948,00:00:00:12,PASS,same action comparison; full Validator PASS=True
-02 (Spiral),4166.585612,00:01:09:26,24.096854,00:00:00:24,PASS,same action comparison; full Validator PASS=True
-03 (Triangular truss),,미측정,,미측정,미측정,이 실험의 비교 범위에 없음
-04 (Motor inner),,미측정,,미측정,미측정,이 실험의 비교 범위에 없음
-05 (Twisted shell),,미측정,,미측정,미측정,이 실험의 비교 범위에 없음
-06 (Angle frame),,미측정,,미측정,미측정,이 실험의 비교 범위에 없음

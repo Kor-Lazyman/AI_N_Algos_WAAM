@@ -1,0 +1,29 @@
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8055
+Press CTRL+C to quit
+127.0.0.1 - - [17/Oct/2026 23:07:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /assets/validator.css?m=1792150354.5036292 HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-component-suites/dash/deps/polyfill@7.v4_4_1m1792246005.12.1.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-component-suites/dash/deps/react@18.v4_4_1m1792246005.3.1.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-component-suites/dash/deps/react-dom@18.v4_4_1m1792246005.3.1.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-component-suites/dash/deps/prop-types@15.v4_4_1m1792246005.8.1.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-component-suites/dash_ag_grid/dash_ag_grid.v35_3_0m1792246007.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-component-suites/dash/dash-renderer/build/dash_renderer.v4_4_1m1792246005.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-component-suites/dash/dcc/dash_core_components.v4_4_1m1792246005.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-component-suites/dash/dcc/dash_core_components-shared.v4_4_1m1792246005.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-component-suites/dash/html/dash_html_components.v4_4_1m1792246006.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-component-suites/dash/dash_table/bundle.v7_4_1m1792246005.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-layout HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-dependencies HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_favicon.ico?v=4.4.1 HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "GET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "POST /_dash-update-component?endId=9DvgCo814JOWIf7tiU45LkLg~38a98fbba972e1853ffc060c72287aeb007aecb58acd3499971887eea49acd5c HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "POST /_dash-update-component?endId=9DvgCo814JOWIf7tiU45LkLg~38a98fbba972e1853ffc060c72287aeb007aecb58acd3499971887eea49acd5c HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:50] "POST /_dash-update-component?endId=9DvgCo814JOWIf7tiU45LkLg~38a98fbba972e1853ffc060c72287aeb007aecb58acd3499971887eea49acd5c HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:51] "POST /_dash-update-component?endId=9DvgCo814JOWIf7tiU45LkLg~38a98fbba972e1853ffc060c72287aeb007aecb58acd3499971887eea49acd5c HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:07:51] "POST /_dash-update-component?endId=9DvgCo814JOWIf7tiU45LkLg~38a98fbba972e1853ffc060c72287aeb007aecb58acd3499971887eea49acd5c HTTP/1.1" 204 -
+127.0.0.1 - - [17/Oct/2026 23:09:42] "POST /_dash-update-component?endId=9DvgCo814JOWIf7tiU45LkLg~38a98fbba972e1853ffc060c72287aeb007aecb58acd3499971887eea49acd5c HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:09:43] "POST /_dash-update-component?endId=9DvgCo814JOWIf7tiU45LkLg~38a98fbba972e1853ffc060c72287aeb007aecb58acd3499971887eea49acd5c HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 23:09:43] "POST /_dash-update-component?endId=9DvgCo814JOWIf7tiU45LkLg~38a98fbba972e1853ffc060c72287aeb007aecb58acd3499971887eea49acd5c HTTP/1.1" 200 -

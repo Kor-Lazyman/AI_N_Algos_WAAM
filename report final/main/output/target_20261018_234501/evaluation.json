@@ -1,0 +1,14 @@
+{
+  "variant": "main",
+  "input_stl": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.1\\report final\\main\\validation_data\\job_00\\episode_000\\input\\target.stl",
+  "model": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.1\\report final\\main\\model\\best_model.zip",
+  "model_sha256": "88b81797cb49f01f568db23321667fd79630eba1b36cc2d93d09d28952805d1a",
+  "placement_model": null,
+  "device": "cpu",
+  "layers": 1,
+  "calculation_wall_time_s": 0.24098800000501797,
+  "makespan_s": 83.89321504487798,
+  "validator_status": "PASS",
+  "reward_sum": 1.6399560710967522,
+  "iou": 0.9888721209593256
+}

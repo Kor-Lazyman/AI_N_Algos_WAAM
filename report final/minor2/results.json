@@ -1,0 +1,293 @@
+{
+  "variant": "minor2",
+  "title": "Minor2 Reward Only PPO",
+  "training": {
+    "version": "1.0.2-minor_2",
+    "environment": "layer_path_reward_minor_2_v1",
+    "step_unit": "layer",
+    "status": "completed",
+    "started_at": "2026-10-18T15:58:42.660650+09:00",
+    "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+    "validation_score_metric": "pass_rate",
+    "evaluation_split": "validation_set",
+    "requested_timesteps": 2560,
+    "requested_updates": 40,
+    "reward_weights": {
+      "performance": 10.0,
+      "validator_pass": 1.0,
+      "iou_threshold": 0.9,
+      "invalid": 2.0,
+      "validation_failure": 1.0
+    },
+    "reward_formula": "iou_gt_0.9_deposition_utilization_over_layer_makespan_v1",
+    "policy": "MlpPolicy",
+    "ppo": {
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "learning_rate": 0.0003,
+      "n_steps": 64,
+      "batch_size": 32,
+      "seed": 42,
+      "device": "cuda",
+      "target_kl": null
+    },
+    "eval_seeds": [
+      10042
+    ],
+    "eval_every_updates": 4,
+    "geometry_device": "cpu",
+    "paths_generated_online": true,
+    "training_trace": "training_layer_trace.jsonl",
+    "tensorboard_enabled": true,
+    "tensorboard_log": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\tensorboard\\reward_only_40updates_20261018_155838_20261018_155842_660650",
+    "wall_time_s": 2494.289177400002,
+    "training_jobs": [
+      {
+        "id": "01",
+        "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\train\\01",
+        "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\training\\00_01",
+        "input_sha256": {
+          "config.yaml": "0c6111e4657f0cc4fc3ba0722ab18ccb78a533e7c233e08b185673c8d846c7e7",
+          "target.stl": "c82bfb68b3ee385230db769eab62236205de560ed85abe3ddf3a09d910e4e146"
+        }
+      },
+      {
+        "id": "02",
+        "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\train\\02",
+        "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\training\\01_02",
+        "input_sha256": {
+          "config.yaml": "0c6111e4657f0cc4fc3ba0722ab18ccb78a533e7c233e08b185673c8d846c7e7",
+          "target.stl": "1262d0f4ca60a7b0920afc80e9ca77a88f45c356d96b120e4df05787e3582962"
+        }
+      },
+      {
+        "id": "03",
+        "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\train\\03",
+        "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\training\\02_03",
+        "input_sha256": {
+          "config.yaml": "0c6111e4657f0cc4fc3ba0722ab18ccb78a533e7c233e08b185673c8d846c7e7",
+          "target.stl": "f5d5dcd1b9126f4a9b104f7913487ab47dc5304b9337a19d0bac284c02326769"
+        }
+      },
+      {
+        "id": "04",
+        "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\train\\04",
+        "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\training\\03_04",
+        "input_sha256": {
+          "config.yaml": "0c6111e4657f0cc4fc3ba0722ab18ccb78a533e7c233e08b185673c8d846c7e7",
+          "target.stl": "dc8ec2acec88920ae367ea4dc43bca71c65e0a2e7f2b00dc6efd2eca4742e56c"
+        }
+      },
+      {
+        "id": "05",
+        "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\train\\05",
+        "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\training\\04_05",
+        "input_sha256": {
+          "config.yaml": "0c6111e4657f0cc4fc3ba0722ab18ccb78a533e7c233e08b185673c8d846c7e7",
+          "target.stl": "c7ef0f6330b2da30cc1671f5e91471074fb1e6ca7e40027193380d6ef7ccad41"
+        }
+      },
+      {
+        "id": "06",
+        "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\train\\06",
+        "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\training\\05_06",
+        "input_sha256": {
+          "config.yaml": "0c6111e4657f0cc4fc3ba0722ab18ccb78a533e7c233e08b185673c8d846c7e7",
+          "target.stl": "0b56e06778553992d12fb47031fff6dc12735d79bdcb49c39a7bb5c96eef12f1"
+        }
+      }
+    ],
+    "validation_jobs": [
+      {
+        "id": "00_sample",
+        "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\00_sample",
+        "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\validation\\00_00_sample",
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "target.stl": "fc5bb5ca0ef7ecdeb8499b69f077c66d7564575e036aa903e53f62c7a66eb451"
+        }
+      },
+      {
+        "id": "01_rectangle",
+        "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\01_rectangle",
+        "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\validation\\01_01_rectangle",
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "target.stl": "4a8a4d87de9784e9798a9266c732305af9c2e77e16f9bca135db64e457747767"
+        }
+      },
+      {
+        "id": "02_triangle",
+        "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\02_triangle",
+        "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\validation\\02_02_triangle",
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "target.stl": "a20b5c1847e959708e39e007a34c230a4e6f7d177d1d810940a4f90e78acf47c"
+        }
+      },
+      {
+        "id": "03_l_shape",
+        "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\03_l_shape",
+        "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\validation\\03_03_l_shape",
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "target.stl": "4a682b69182429ced581923e0add2e8e9e2f495a6c722cdf9cd573a6a36bee9b"
+        }
+      },
+      {
+        "id": "04_cross",
+        "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\04_cross",
+        "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\validation\\04_04_cross",
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "target.stl": "c721ca7b21a64464540d8c40b31dec972ab5c0089b2d6704b60ba29a8034ffc5"
+        }
+      },
+      {
+        "id": "05_ring",
+        "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\05_ring",
+        "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\validation\\05_05_ring",
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "target.stl": "e12c3b0b666933e349a9724dc5bcb2f051e8b46c925a8fc7c248c80f438c8d2d"
+        }
+      }
+    ],
+    "validation_job": {
+      "id": "00_sample",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\00_sample",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\minor_2\\result\\training\\reward_only_40updates_20261018_155838\\inputs\\validation\\00_00_sample",
+      "input_sha256": {
+        "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+        "target.stl": "fc5bb5ca0ef7ecdeb8499b69f077c66d7564575e036aa903e53f62c7a66eb451"
+      }
+    },
+    "validation_dir": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation",
+    "warm_start": {
+      "model": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\result\\training\\layers_1.0.2_20261017_044941_396096\\ppo_model.zip",
+      "sha256": "0df6a81272545af5a7e980cb4d3ffb37e752f7bdeb64c9ae337994b5905812cc",
+      "source_timesteps": 1024,
+      "optimizer": "reset"
+    },
+    "actual_device": "cuda",
+    "policy_parameter_devices": [
+      "cuda:0"
+    ],
+    "spaces": {
+      "action": {
+        "type": "MultiDiscrete",
+        "nvec": [
+          8,
+          3,
+          4,
+          2,
+          2,
+          3,
+          6
+        ],
+        "fields": {
+          "hatch_angle": "0..7 -> 0,22.5,...,157.5 degrees",
+          "hatch_spacing": "0..2 -> bead width * (0.8,0.9,1.0)",
+          "start_corner": "0..3 -> min/min, max/min, min/max, max/max XY",
+          "reverse": "reverse segment sequence and directions",
+          "partition_axis": "0=X, 1=Y; spatial bands weighted by deposition length",
+          "partition_quota": "equal, first-band-heavy, last-band-heavy",
+          "robot_order": "lexicographic permutations of robot IDs 1,2,3"
+        }
+      },
+      "observation": {
+        "shape": [
+          309
+        ],
+        "dtype": "float32"
+      }
+    },
+    "gpu_name": "NVIDIA GeForce RTX 3070 Ti Laptop GPU",
+    "completed_updates": 40,
+    "actual_timesteps": 2560,
+    "training_episode_counts": [
+      5,
+      6,
+      6,
+      5,
+      6,
+      6
+    ],
+    "training_step_counts": [
+      30,
+      48,
+      36,
+      250,
+      1890,
+      306
+    ],
+    "optimizer_state_devices": {
+      "step": [
+        "cpu"
+      ],
+      "exp_avg": [
+        "cuda:0"
+      ],
+      "exp_avg_sq": [
+        "cuda:0"
+      ]
+    },
+    "last_update_wall_time_s": 37.047982099989895,
+    "last_update_layers_per_s": 1.7274894980047364,
+    "best_validation_score": 1.0,
+    "best_step": 256,
+    "best_model": "best_model.zip",
+    "model": "ppo_model.zip",
+    "completed_at": "2026-10-18T16:40:16.949949+09:00"
+  },
+  "model_results": [
+    {
+      "model": "01 (Honeycomb)",
+      "makespan_s": 2450.1577719581524,
+      "makespan_DD_HH_MM_SS": "00:00:40:50",
+      "calculation_s": 5.702401000016835,
+      "calculation_DD_HH_MM_SS": "00:00:00:05",
+      "validator": "PASS"
+    },
+    {
+      "model": "02 (Spiral)",
+      "makespan_s": 5074.486667945069,
+      "makespan_DD_HH_MM_SS": "00:01:24:34",
+      "calculation_s": 10.54116670001531,
+      "calculation_DD_HH_MM_SS": "00:00:00:10",
+      "validator": "PASS"
+    },
+    {
+      "model": "03 (Triangular truss)",
+      "makespan_s": 3976.8949853286385,
+      "makespan_DD_HH_MM_SS": "00:01:06:16",
+      "calculation_s": 6.7791969000245444,
+      "calculation_DD_HH_MM_SS": "00:00:00:06",
+      "validator": "PASS"
+    },
+    {
+      "model": "04 (Motor inner)",
+      "makespan_s": 69364.06318256586,
+      "makespan_DD_HH_MM_SS": "00:19:16:04",
+      "calculation_s": 85.20261229999596,
+      "calculation_DD_HH_MM_SS": "00:00:01:25",
+      "validator": "PASS"
+    },
+    {
+      "model": "05 (Twisted shell)",
+      "makespan_s": 390442.4021352972,
+      "makespan_DD_HH_MM_SS": "04:12:27:22",
+      "calculation_s": 434.21130710002035,
+      "calculation_DD_HH_MM_SS": "00:00:07:14",
+      "validator": "PASS"
+    },
+    {
+      "model": "06 (Angle frame)",
+      "makespan_s": 9667.396018963238,
+      "makespan_DD_HH_MM_SS": "00:02:41:07",
+      "calculation_s": 16.13380850001704,
+      "calculation_DD_HH_MM_SS": "00:00:00:16",
+      "validator": "PASS"
+    }
+  ]
+}

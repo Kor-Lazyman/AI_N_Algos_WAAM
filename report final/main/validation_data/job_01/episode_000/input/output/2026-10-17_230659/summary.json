@@ -1,0 +1,133 @@
+{
+  "schema_version": "4.0",
+  "validator_version": "1.0.1",
+  "status": "PASS",
+  "input": {
+    "directory": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\result\\layer_evaluation\\validation_stl_20261017_latest_runtime\\job_01\\episode_000\\input",
+    "trajectory_rows": 173,
+    "target_watertight": true
+  },
+  "schedule": {
+    "makespan_s": 586.1977621957908,
+    "robot_completion_s": {
+      "1": 586.1977621957908,
+      "2": 586.1977621957908,
+      "3": 586.1977621957908
+    },
+    "workload_imbalance_s": 0.0,
+    "normalized_imbalance": 0.0
+  },
+  "reach": {
+    "distance_basis": "XY",
+    "passed": true,
+    "robots": [
+      {
+        "robot_id": 1,
+        "passed": true,
+        "xy_reach_radius_mm": 2500.0,
+        "maximum_xy_distance_mm": 1221.8109863104826,
+        "minimum_xy_margin_mm": 1278.1890136895174,
+        "xy_utilization_ratio": 0.48872439452419303,
+        "xy_violation_point_count": 0,
+        "first_xy_violation_s": null,
+        "last_xy_violation_s": null
+      },
+      {
+        "robot_id": 2,
+        "passed": true,
+        "xy_reach_radius_mm": 2500.0,
+        "maximum_xy_distance_mm": 1221.8109863104826,
+        "minimum_xy_margin_mm": 1278.1890136895174,
+        "xy_utilization_ratio": 0.48872439452419303,
+        "xy_violation_point_count": 0,
+        "first_xy_violation_s": null,
+        "last_xy_violation_s": null
+      },
+      {
+        "robot_id": 3,
+        "passed": true,
+        "xy_reach_radius_mm": 2500.0,
+        "maximum_xy_distance_mm": 1228.9792860486186,
+        "minimum_xy_margin_mm": 1271.0207139513814,
+        "xy_utilization_ratio": 0.49159171441944743,
+        "xy_violation_point_count": 0,
+        "first_xy_violation_s": null,
+        "last_xy_violation_s": null
+      }
+    ]
+  },
+  "collision": {
+    "passed": true,
+    "collision_event_count": 0,
+    "arm_envelope": {
+      "enabled": true,
+      "passed": true,
+      "event_count": 0,
+      "minimum_safety_margin_mm": 860.570160057265,
+      "centerline_distance_at_worst_mm": 1110.570160057265,
+      "required_distance_at_worst_mm": 250.0,
+      "capsule_surface_clearance_at_worst_mm": 910.570160057265,
+      "pair": [
+        1,
+        2
+      ],
+      "time_s": 10.37417752364383,
+      "closest_points_xy_mm": [
+        [
+          -1000.0,
+          -600.0
+        ],
+        [
+          -48.040000915527344,
+          -28.040000915527344
+        ]
+      ],
+      "tcp_positions_xy_mm": [
+        [
+          -1000.0,
+          -600.0
+        ],
+        [
+          -48.040000915527344,
+          -28.040000915527344
+        ],
+        [
+          0.0,
+          1200.0
+        ]
+      ]
+    },
+    "tcp_radius": {
+      "enabled": true,
+      "passed": true,
+      "event_count": 0,
+      "minimum_distance_mm": 1110.570160057265,
+      "required_distance_at_minimum_mm": 40.0,
+      "pair": [
+        1,
+        2
+      ],
+      "time_s": 10.37417752364383
+    }
+  },
+  "shape": {
+    "passed": true,
+    "target_volume_mm3": 24000.0,
+    "deposited_volume_mm3": 24037.168952960004,
+    "intersection_volume_mm3": 23988.217945279997,
+    "underfill_volume_mm3": 11.782054720000028,
+    "overfill_volume_mm3": 48.951052799998976,
+    "coverage": 0.9995090810533332,
+    "underfill_ratio": 0.0004909189466666678,
+    "overfill_ratio": 0.002039627199999957,
+    "iou": 0.9974746065896756,
+    "failed_layer_count": 0,
+    "evaluated_layer_count": 2,
+    "failed_layer_ratio": 0.0,
+    "target_mesh_volume_mm3": 24000.0,
+    "target_volume_discrepancy_ratio": 0.0
+  },
+  "failure_reasons": [],
+  "issues": [],
+  "output_directory": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\result\\layer_evaluation\\validation_stl_20261017_latest_runtime\\job_01\\episode_000\\input\\output\\2026-10-17_230659"
+}

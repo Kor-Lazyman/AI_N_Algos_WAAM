@@ -1,7 +1,0 @@
-﻿model,makespan_seconds,makespan_DD_HH_MM_SS,calculation_seconds,calculation_DD_HH_MM_SS,validator,notes
-01 (Honeycomb),2450.157772,00:00:40:50,5.702401,00:00:00:05,PASS,same six STL; held fixed seed 10042
-02 (Spiral),5074.486668,00:01:24:34,10.541167,00:00:00:10,PASS,same six STL; held fixed seed 10042
-03 (Triangular truss),3976.894985,00:01:06:16,6.779197,00:00:00:06,PASS,same six STL; held fixed seed 10042
-04 (Motor inner),69364.063183,00:19:16:04,85.202612,00:00:01:25,PASS,same six STL; held fixed seed 10042
-05 (Twisted shell),390442.402135,04:12:27:22,434.211307,00:00:07:14,PASS,same six STL; held fixed seed 10042
-06 (Angle frame),9667.396019,00:02:41:07,16.133809,00:00:00:16,PASS,same six STL; held fixed seed 10042

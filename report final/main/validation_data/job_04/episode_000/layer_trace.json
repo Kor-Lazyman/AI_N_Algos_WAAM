@@ -1,0 +1,71 @@
+[
+  {
+    "version": "1.0.2",
+    "environment": "layer_path_v1",
+    "completed_layers": 1,
+    "total_layers": 1,
+    "schedule_complete": true,
+    "makespan_s": 292.12784647543265,
+    "iou": 0.9962078138950382,
+    "layer_index": 0,
+    "layer_iou": 0.9962078138950382,
+    "layer_shape_passed": true,
+    "layer_duration_s": 292.12784647543265,
+    "time_reference_s": 237.74168460415572,
+    "robot_utilization": [
+      0.25917005539290267,
+      0.4653452733889742,
+      0.27548467121812314
+    ],
+    "mean_robot_utilization": 0.3333333333333333,
+    "robot_idle_s": [
+      216.4170563225854,
+      156.18753389279016,
+      211.65110273548973
+    ],
+    "idle_factor": 3.0,
+    "weighted_layer_duration_s": 876.383539426298,
+    "generated_segments": 71,
+    "robot_segment_counts": [
+      24,
+      35,
+      12
+    ],
+    "reassigned_segments": 0,
+    "serial_fallback": true,
+    "reward_iou": 0.9962078138950382,
+    "reward_time": -0.3686284720685364,
+    "reward_invalid": 0.0,
+    "reward_terminal": 1.0,
+    "terminal_status": "PASS",
+    "terminal_error": null,
+    "path_parameters": {
+      "hatch_angle_deg": 135.0,
+      "spacing_factor": 0.9,
+      "start_corner": 2,
+      "reverse": true,
+      "partition_axis": "y",
+      "quotas": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "robot_order": [
+        2,
+        3,
+        1
+      ]
+    },
+    "action": [
+      6,
+      1,
+      2,
+      1,
+      1,
+      1,
+      3
+    ],
+    "reward": 1.6275793418265019,
+    "step_wall_time_s": 0.3359801999758929
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "placement_schema": "stl_global_xy_v1",
+  "layer_file": "model_snapshot.zip",
+  "placement_file": "placement_snapshot.zip",
+  "layer_sha256": "3391729f4f8a41eb478e4820bf777739b97b1b53b35ab95bee7cd180e3cbd39a",
+  "placement_sha256": "0945d7ddd0fec6a413683307e8a9bfbb607b9932647d40052786807d8ceeefda"
+}

@@ -1,0 +1,294 @@
+{
+  "version": "1.0.2-minor",
+  "environment": "layer_multi_robot_placement_minor_v1",
+  "model_timesteps": 1024,
+  "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+  "split": "validation_set",
+  "validation_jobs": [
+    {
+      "id": "00_sample",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\00_sample",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\Minor\\result\\training\\minor_40updates_20261018_152213\\inputs\\validation\\00_00_sample",
+      "input_sha256": {
+        "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+        "target.stl": "fc5bb5ca0ef7ecdeb8499b69f077c66d7564575e036aa903e53f62c7a66eb451"
+      }
+    },
+    {
+      "id": "01_rectangle",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\01_rectangle",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\Minor\\result\\training\\minor_40updates_20261018_152213\\inputs\\validation\\01_01_rectangle",
+      "input_sha256": {
+        "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+        "target.stl": "4a8a4d87de9784e9798a9266c732305af9c2e77e16f9bca135db64e457747767"
+      }
+    },
+    {
+      "id": "02_triangle",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\02_triangle",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\Minor\\result\\training\\minor_40updates_20261018_152213\\inputs\\validation\\02_02_triangle",
+      "input_sha256": {
+        "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+        "target.stl": "a20b5c1847e959708e39e007a34c230a4e6f7d177d1d810940a4f90e78acf47c"
+      }
+    },
+    {
+      "id": "03_l_shape",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\03_l_shape",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\Minor\\result\\training\\minor_40updates_20261018_152213\\inputs\\validation\\03_03_l_shape",
+      "input_sha256": {
+        "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+        "target.stl": "4a682b69182429ced581923e0add2e8e9e2f495a6c722cdf9cd573a6a36bee9b"
+      }
+    },
+    {
+      "id": "04_cross",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\04_cross",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\Minor\\result\\training\\minor_40updates_20261018_152213\\inputs\\validation\\04_04_cross",
+      "input_sha256": {
+        "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+        "target.stl": "c721ca7b21a64464540d8c40b31dec972ab5c0089b2d6704b60ba29a8034ffc5"
+      }
+    },
+    {
+      "id": "05_ring",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\validation\\05_ring",
+      "scenario": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\Minor\\result\\training\\minor_40updates_20261018_152213\\inputs\\validation\\05_05_ring",
+      "input_sha256": {
+        "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+        "target.stl": "e12c3b0b666933e349a9724dc5bcb2f051e8b46c925a8fc7c248c80f438c8d2d"
+      }
+    }
+  ],
+  "seeds": [
+    10042
+  ],
+  "summary": {
+    "update": 16,
+    "step": 1024,
+    "episodes": 6,
+    "step_unit": "layer",
+    "completion_rate": 1.0,
+    "pass_rate": 1.0,
+    "success_rate": 1.0,
+    "ep_rew_mean": 3.806973558800832,
+    "ep_len_mean": 1.3333333333333333,
+    "iou_mean": 0.9953718865640758,
+    "makespan_completed_mean_s": 295.8557115298221,
+    "makespan_success_mean_s": 295.8557115298221,
+    "score": 1.0,
+    "normalized_makespan": 0.95706584762077,
+    "deposition_overlap_ratio": 0.0,
+    "selection_key": [
+      1.0,
+      -0.95706584762077,
+      0.0
+    ]
+  },
+  "episodes": [
+    {
+      "version": "1.0.2-minor",
+      "environment": "layer_multi_robot_placement_minor_v1",
+      "seed": 10042,
+      "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+      "step_unit": "layer",
+      "episode_reward": 2.608452630187068,
+      "episode_length": 1,
+      "schedule_complete": true,
+      "completed_layers": 1,
+      "total_layers": 1,
+      "status": "PASS",
+      "success": true,
+      "iou": 0.9888779341053221,
+      "makespan_s": 43.07702779509093,
+      "partial_makespan_s": 43.07702779509093,
+      "failure_reason": null,
+      "terminal_validation_reused": true,
+      "artifacts": {
+        "status": "READY",
+        "validation_status": "PASS",
+        "trajectory": "input/trajectory.csv",
+        "deposited_stl": "deposited.stl",
+        "layers": 1,
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "trajectory.csv": "b67483b3052d85c2b01cd5d358ef8125e0dddc02d217ca1672736ff1726cab57",
+          "target.stl": "8481a3f963c06d93a8bab4972318dbe2c3f5d1d836d6969ce5b4c6c81008e69c"
+        },
+        "deposited_stl_sha256": "dab139ae0a4156a8b9dfc78dc7e3f48762847535d0568d2884d1dc78e7beaeee",
+        "wall_time_s": 0.031043399998452514
+      },
+      "wall_time_s": 0.616311100020539
+    },
+    {
+      "version": "1.0.2-minor",
+      "environment": "layer_multi_robot_placement_minor_v1",
+      "seed": 10042,
+      "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+      "step_unit": "layer",
+      "episode_reward": 5.991221489808785,
+      "episode_length": 2,
+      "schedule_complete": true,
+      "completed_layers": 2,
+      "total_layers": 2,
+      "status": "PASS",
+      "success": true,
+      "iou": 0.9974746065896752,
+      "makespan_s": 500.4550576408344,
+      "partial_makespan_s": 500.4550576408344,
+      "failure_reason": null,
+      "terminal_validation_reused": true,
+      "artifacts": {
+        "status": "READY",
+        "validation_status": "PASS",
+        "trajectory": "input/trajectory.csv",
+        "deposited_stl": "deposited.stl",
+        "layers": 2,
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "trajectory.csv": "59b8efec63369085a2a2d097615b44ffc162256f0e010907e1b589852d4ad178",
+          "target.stl": "52f76e8a33c3dad2ee2c933c8e5ee495989d9e9b931b9153e05f7a49c8453219"
+        },
+        "deposited_stl_sha256": "54e40f6c833054b65e7311991194471c781fb5e1f31f1830d1db1f73dc9ee4d6",
+        "wall_time_s": 0.03823000000556931
+      },
+      "wall_time_s": 2.4317396999686025
+    },
+    {
+      "version": "1.0.2-minor",
+      "environment": "layer_multi_robot_placement_minor_v1",
+      "seed": 10042,
+      "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+      "step_unit": "layer",
+      "episode_reward": 2.9020118525695353,
+      "episode_length": 1,
+      "schedule_complete": true,
+      "completed_layers": 1,
+      "total_layers": 1,
+      "status": "PASS",
+      "success": true,
+      "iou": 0.99542516355808,
+      "makespan_s": 182.07110500336438,
+      "partial_makespan_s": 182.07110500336438,
+      "failure_reason": null,
+      "terminal_validation_reused": true,
+      "artifacts": {
+        "status": "READY",
+        "validation_status": "PASS",
+        "trajectory": "input/trajectory.csv",
+        "deposited_stl": "deposited.stl",
+        "layers": 1,
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "trajectory.csv": "8fd69267b96b151d6d99f11041c9dae322b26b5a0820e0150b23646c887554e8",
+          "target.stl": "223ec0009a4213652703ae8bb2fc41cec61dd0b466823984953014cbb7277807"
+        },
+        "deposited_stl_sha256": "b6397158c98b4ccb9042ede0b9e7f9bf6a973408f5a5968c2548ec39f55decd8",
+        "wall_time_s": 0.04178829997545108
+      },
+      "wall_time_s": 0.7264558000024408
+    },
+    {
+      "version": "1.0.2-minor",
+      "environment": "layer_multi_robot_placement_minor_v1",
+      "seed": 10042,
+      "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+      "step_unit": "layer",
+      "episode_reward": 5.8215918797770225,
+      "episode_length": 2,
+      "schedule_complete": true,
+      "completed_layers": 2,
+      "total_layers": 2,
+      "status": "PASS",
+      "success": true,
+      "iou": 0.9965332489424508,
+      "makespan_s": 482.59698986260395,
+      "partial_makespan_s": 482.59698986260395,
+      "failure_reason": null,
+      "terminal_validation_reused": true,
+      "artifacts": {
+        "status": "READY",
+        "validation_status": "PASS",
+        "trajectory": "input/trajectory.csv",
+        "deposited_stl": "deposited.stl",
+        "layers": 2,
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "trajectory.csv": "105ef691dd69cbbaa8ba1932f2f91c020717614c36ea6112207b96dea5f7f0f4",
+          "target.stl": "0407f7a7bb0bfb80882c4af1817615d094c4fd59081fe909b24aec168db03592"
+        },
+        "deposited_stl_sha256": "7e6eba8347a3a67d47663b591a91a5edf6825e13d4c33d30aa0c17cc4cb67ad5",
+        "wall_time_s": 0.04531959997257218
+      },
+      "wall_time_s": 1.92934840003727
+    },
+    {
+      "version": "1.0.2-minor",
+      "environment": "layer_multi_robot_placement_minor_v1",
+      "seed": 10042,
+      "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+      "step_unit": "layer",
+      "episode_reward": 2.671664632048386,
+      "episode_length": 1,
+      "schedule_complete": true,
+      "completed_layers": 1,
+      "total_layers": 1,
+      "status": "PASS",
+      "success": true,
+      "iou": 0.9962085460166491,
+      "makespan_s": 256.98431306326216,
+      "partial_makespan_s": 256.98431306326216,
+      "failure_reason": null,
+      "terminal_validation_reused": true,
+      "artifacts": {
+        "status": "READY",
+        "validation_status": "PASS",
+        "trajectory": "input/trajectory.csv",
+        "deposited_stl": "deposited.stl",
+        "layers": 1,
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "trajectory.csv": "5b85a97decba674c5be6922a8ad2ef14bff91d776a8af318a3d502d1d87c0175",
+          "target.stl": "476e87dc3c01957d22b58dd706a59881620ccd68e7d8ecb22693d996b816a031"
+        },
+        "deposited_stl_sha256": "5dcfd1d9b2dd9a47474d098da4d49a7957ef6140975d2b43330c6e07b997d0b0",
+        "wall_time_s": 0.04475219995947555
+      },
+      "wall_time_s": 1.2326362999738194
+    },
+    {
+      "version": "1.0.2-minor",
+      "environment": "layer_multi_robot_placement_minor_v1",
+      "seed": 10042,
+      "evaluation_criterion": "complete_schedule_and_validator_pass_v1",
+      "step_unit": "layer",
+      "episode_reward": 2.846898868414196,
+      "episode_length": 1,
+      "schedule_complete": true,
+      "completed_layers": 1,
+      "total_layers": 1,
+      "status": "PASS",
+      "success": true,
+      "iou": 0.9977118201722777,
+      "makespan_s": 309.94977581377685,
+      "partial_makespan_s": 309.94977581377685,
+      "failure_reason": null,
+      "terminal_validation_reused": true,
+      "artifacts": {
+        "status": "READY",
+        "validation_status": "PASS",
+        "trajectory": "input/trajectory.csv",
+        "deposited_stl": "deposited.stl",
+        "layers": 1,
+        "input_sha256": {
+          "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+          "trajectory.csv": "2736b22f121eea477630c68ec8813cdb5b1177d5a037276e384c9b782346970c",
+          "target.stl": "3dcdb64f9533bca3368461992f859df846d3f12abde2ef8291603b0f8a4a6ee1"
+        },
+        "deposited_stl_sha256": "bd294ca1b53c24170959d4cb6e5cfecf4e397a2c245fcb6d558e433a695e4055",
+        "wall_time_s": 0.046883000002708286
+      },
+      "wall_time_s": 1.8534866999834776
+    }
+  ]
+}

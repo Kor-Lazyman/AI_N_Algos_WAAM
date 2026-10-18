@@ -1,0 +1,16 @@
+2026-10-18 20:36:47,885 | INFO | WAAM Validator version 1.0.1
+2026-10-18 20:36:47,925 | INFO | Loading configuration
+2026-10-18 20:36:47,932 | INFO | Loading trajectory
+2026-10-18 20:36:47,976 | INFO | Loaded 32236 trajectory rows
+2026-10-18 20:36:48,000 | INFO | Loaded target: 2408 faces, watertight=True
+2026-10-18 20:36:48,003 | INFO | Schedule: makespan=54148.629 s, workload_imbalance=0.000 s (0.000%)
+2026-10-18 20:36:48,003 | INFO | R1 metrics: D=21693.462 s/173547.697 mm/8.000000 mm/s, T=1047.683 s/157152.422 mm/150.000000 mm/s, W=31407.484 s, xy_reach=1404.959/1500.000 mm (93.664%), violations=0
+2026-10-18 20:36:48,003 | INFO | R2 metrics: D=12167.907 s/97343.259 mm/8.000000 mm/s, T=986.339 s/147950.789 mm/150.000000 mm/s, W=40994.383 s, xy_reach=1390.107/1500.000 mm (92.674%), violations=0
+2026-10-18 20:36:48,004 | INFO | R3 metrics: D=29320.019 s/234560.152 mm/8.000000 mm/s, T=1123.135 s/168470.183 mm/150.000000 mm/s, W=23705.476 s, xy_reach=1401.211/1500.000 mm (93.414%), violations=0
+2026-10-18 20:37:00,694 | INFO | Collision scan: 620454 samples, 0 events
+2026-10-18 20:37:00,694 | INFO | Arm Envelope worst case: margin=0.136060 mm, centerline=250.136060 mm, required=250.000000 mm, pair=R2-R3, time=37286.493734 s
+2026-10-18 20:37:03,316 | INFO | Built deposited geometry for 50 layers
+2026-10-18 20:37:03,316 | INFO | Evaluating 50 layers (indices 0 to 49)
+2026-10-18 20:37:04,449 | INFO | Shape metrics: coverage=1.000000, underfill=0.000000, overfill=0.002628, IoU=0.997378, failed_layers=0/50, layer_volume=6661016.661 mm3, mesh_volume=6661016.291 mm3, discrepancy=0.000000
+2026-10-18 20:37:04,449 | INFO | Validation findings: 0 failure reasons, 0 violations, 0 warnings
+2026-10-18 20:37:04,470 | INFO | Validation completed with status PASS

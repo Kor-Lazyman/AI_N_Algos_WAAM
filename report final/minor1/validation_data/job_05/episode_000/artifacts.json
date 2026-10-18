@@ -1,0 +1,14 @@
+{
+  "status": "READY",
+  "validation_status": "PASS",
+  "trajectory": "input/trajectory.csv",
+  "deposited_stl": "deposited.stl",
+  "layers": 1,
+  "input_sha256": {
+    "config.yaml": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+    "trajectory.csv": "2736b22f121eea477630c68ec8813cdb5b1177d5a037276e384c9b782346970c",
+    "target.stl": "3dcdb64f9533bca3368461992f859df846d3f12abde2ef8291603b0f8a4a6ee1"
+  },
+  "deposited_stl_sha256": "bd294ca1b53c24170959d4cb6e5cfecf4e397a2c245fcb6d558e433a695e4055",
+  "wall_time_s": 0.046883000002708286
+}

@@ -1,7 +1,0 @@
-﻿model,makespan_seconds,makespan_DD_HH_MM_SS,calculation_seconds,calculation_DD_HH_MM_SS,validator,notes
-01 (Honeycomb),2104.941651,00:00:35:04,92.479765,00:00:01:32,PASS,규칙 기반 compacted schedule; learned Beta PPO 아님
-02 (Spiral),,미측정,,미측정,미측정,별도 PPO test 실행 자료 없음
-03 (Triangular truss),,미측정,,미측정,미측정,별도 PPO test 실행 자료 없음
-04 (Motor inner),,미측정,,미측정,미측정,별도 PPO test 실행 자료 없음
-05 (Twisted shell),,미측정,,미측정,미측정,별도 PPO test 실행 자료 없음
-06 (Angle frame),,미측정,,미측정,미측정,별도 PPO test 실행 자료 없음

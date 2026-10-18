@@ -1,0 +1,15 @@
+{
+  "schema": "stl_global_xy_v1",
+  "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\Minor\\result\\training\\minor_40updates_20261018_152213\\inputs\\validation\\03_03_l_shape",
+  "action": [
+    -0.008643324486911297,
+    -0.06870326399803162
+  ],
+  "translation_xyz_mm": [
+    -2.160831121727824,
+    -17.175815999507904,
+    0.0
+  ],
+  "application": "whole_mesh_before_slicing",
+  "same_translation_for_every_layer": true
+}

@@ -1,0 +1,123 @@
+[
+  {
+    "version": "1.0.2-minor",
+    "environment": "layer_multi_robot_placement_minor_v1",
+    "completed_layers": 1,
+    "total_layers": 1,
+    "schedule_complete": true,
+    "makespan_s": 182.07110500336438,
+    "iou": 0.99542516355808,
+    "placement": {
+      "schema": "stl_global_xy_v1",
+      "source": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main\\Minor\\result\\training\\minor_40updates_20261018_152213\\inputs\\validation\\02_02_triangle",
+      "action": [
+        -0.008502490818500519,
+        -0.06877822428941727
+      ],
+      "translation_xyz_mm": [
+        -2.1256227046251297,
+        -17.194556072354317,
+        0.0
+      ],
+      "application": "whole_mesh_before_slicing",
+      "same_translation_for_every_layer": true
+    },
+    "layer_index": 0,
+    "layer_iou": 0.99542516355808,
+    "layer_shape_passed": true,
+    "layer_duration_s": 182.07110500336438,
+    "time_reference_s": 186.74087925499737,
+    "robot_utilization": [
+      0.4786020122438187,
+      0.5958834145784929,
+      0.0
+    ],
+    "mean_robot_utilization": 0.35816180894077054,
+    "robot_idle_s": [
+      94.93150777729858,
+      73.57795325788028,
+      182.07110500336438
+    ],
+    "idle_factor": 2.925514573177688,
+    "weighted_layer_duration_s": 532.6516710419075,
+    "generated_segments": 29,
+    "robot_segment_counts": [
+      16,
+      13,
+      0
+    ],
+    "reassigned_segments": 0,
+    "serial_fallback": true,
+    "reward_iou": 0.0,
+    "reward_invalid": 0.0,
+    "reward_branch": "performance",
+    "reward_time": 2.9020118525695353,
+    "reward_terminal": 0.0,
+    "robot_deposition_s": [
+      66.596144217317,
+      87.95175044841032,
+      0
+    ],
+    "robot_travel_s": [
+      20.5434530087488,
+      20.541401297073758,
+      0
+    ],
+    "robot_wait_s": [
+      94.93150777729858,
+      73.5779532578803,
+      182.07110500336438
+    ],
+    "robot_deposition_utilization": [
+      0.36576997880079004,
+      0.48306264987398806,
+      0.0
+    ],
+    "mean_deposition_utilization": 0.2829442095582594,
+    "active_deposition_robots": 2,
+    "deposition_single_s": 154.5478946657273,
+    "deposition_2plus_s": 0.0,
+    "deposition_3_s": 0.0,
+    "total_wait_s": 350.5805660385432,
+    "schedule_method": "nearest_base_staggered",
+    "schedule_checks": 9,
+    "quick_rejections": 73,
+    "start_offsets_s": [
+      94.93150777729858,
+      0.0,
+      0.0
+    ],
+    "baseline_duration_s": 217.8144847863321,
+    "scheduler_reduction_s": 35.74337978296771,
+    "terminal_status": "PASS",
+    "terminal_error": null,
+    "path_parameters": {
+      "hatch_angle_deg": 135.0,
+      "spacing_factor": 0.9,
+      "start_corner": 2,
+      "reverse": true,
+      "partition_axis": "x",
+      "quotas": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "robot_order": [
+        2,
+        1,
+        3
+      ]
+    },
+    "action": [
+      6,
+      1,
+      2,
+      1,
+      0,
+      1,
+      2
+    ],
+    "reward": 2.9020118525695353,
+    "step_wall_time_s": 0.5641071000136435
+  }
+]
