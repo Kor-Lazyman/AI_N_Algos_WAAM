@@ -1,0 +1,125 @@
+{
+  "dataset": "held_out_validation_stl_v1",
+  "jobs": [
+    {
+      "id": "00_sample",
+      "description": "official sample reference",
+      "target_sha256": "fc5bb5ca0ef7ecdeb8499b69f077c66d7564575e036aa903e53f62c7a66eb451",
+      "config_sha256": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+      "bounds_mm": [
+        [
+          -42.0,
+          -2.0,
+          0.0
+        ],
+        [
+          42.0,
+          2.0,
+          2.0
+        ]
+      ],
+      "watertight": true,
+      "triangles": 132
+    },
+    {
+      "id": "01_rectangle",
+      "description": "100 \u00d7 60 mm rectangle, two layers",
+      "target_sha256": "4a8a4d87de9784e9798a9266c732305af9c2e77e16f9bca135db64e457747767",
+      "config_sha256": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+      "bounds_mm": [
+        [
+          -50.0,
+          -30.0,
+          0.0
+        ],
+        [
+          50.0,
+          30.0,
+          4.0
+        ]
+      ],
+      "watertight": true,
+      "triangles": 12
+    },
+    {
+      "id": "02_triangle",
+      "description": "triangular footprint, one layer",
+      "target_sha256": "a20b5c1847e959708e39e007a34c230a4e6f7d177d1d810940a4f90e78acf47c",
+      "config_sha256": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+      "bounds_mm": [
+        [
+          -50.0,
+          -35.0,
+          0.0
+        ],
+        [
+          50.0,
+          45.0,
+          2.0
+        ]
+      ],
+      "watertight": true,
+      "triangles": 8
+    },
+    {
+      "id": "03_l_shape",
+      "description": "L-shaped footprint, two layers",
+      "target_sha256": "4a682b69182429ced581923e0add2e8e9e2f495a6c722cdf9cd573a6a36bee9b",
+      "config_sha256": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+      "bounds_mm": [
+        [
+          -55.0,
+          -45.0,
+          0.0
+        ],
+        [
+          55.0,
+          50.0,
+          4.0
+        ]
+      ],
+      "watertight": true,
+      "triangles": 20
+    },
+    {
+      "id": "04_cross",
+      "description": "cross-shaped footprint, one layer",
+      "target_sha256": "c721ca7b21a64464540d8c40b31dec972ab5c0089b2d6704b60ba29a8034ffc5",
+      "config_sha256": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+      "bounds_mm": [
+        [
+          -52.0,
+          -52.0,
+          0.0
+        ],
+        [
+          52.0,
+          52.0,
+          2.0
+        ]
+      ],
+      "watertight": true,
+      "triangles": 44
+    },
+    {
+      "id": "05_ring",
+      "description": "annular footprint with a hole, one layer",
+      "target_sha256": "e12c3b0b666933e349a9724dc5bcb2f051e8b46c925a8fc7c248c80f438c8d2d",
+      "config_sha256": "93293be7fa017df46ffd7913b4d48a54ebdc8a8b1c1eb072a2a001f4ee43165e",
+      "bounds_mm": [
+        [
+          -52.0,
+          -52.0,
+          0.0
+        ],
+        [
+          52.0,
+          52.0,
+          2.0
+        ]
+      ],
+      "watertight": true,
+      "triangles": 1536
+    }
+  ]
+}

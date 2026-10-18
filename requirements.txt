@@ -1,0 +1,4 @@
+-r environment/requirements.lock
+gymnasium>=1.0,<2
+stable-baselines3>=2.3,<3
+tensorboard>=2.16,<3
