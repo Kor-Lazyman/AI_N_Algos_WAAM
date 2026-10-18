@@ -1,0 +1,7 @@
+﻿model,makespan_seconds,makespan_DD_HH_MM_SS,calculation_seconds,calculation_DD_HH_MM_SS,validator,notes
+01 (Honeycomb),2577.590425,00:00:42:57,7.170191,00:00:00:07,PASS,input=train/01
+02 (Spiral),5311.782719,00:01:28:31,12.666301,00:00:00:12,PASS,input=train/02
+03 (Triangular truss),4070.593899,00:01:07:50,5.924753,00:00:00:05,PASS,input=train/03
+04 (Motor inner),72375.416158,00:20:06:15,67.436593,00:00:01:07,PASS,input=train/04
+05 (Twisted shell),437001.509579,05:01:23:21,515.076593,00:00:08:35,PASS,input=train/05
+06 (Angle frame),9619.633483,00:02:40:19,23.007075,00:00:00:23,PASS,input=train/06

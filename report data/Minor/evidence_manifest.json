@@ -1,0 +1,52 @@
+{
+  "report": "REPORT.md",
+  "linked_evidence": [
+    {
+      "href": "../../Minor/result/benchmark/full_01_02/job_00_01/before_gantt.html",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../Minor/result/benchmark/full_01_02/job_00_01/after_gantt.html",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../Minor/result/benchmark/full_01_02/job_00_01/after/validation/validation_report.md",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../Minor/result/benchmark/full_01_02/job_01_02/before_gantt.html",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../Minor/result/benchmark/full_01_02/job_01_02/after_gantt.html",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../Minor/result/benchmark/full_01_02/job_01_02/after/validation/validation_report.md",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../Minor/RESULTS.md",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../Minor/result/benchmark/full_01_02/comparison.json",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../Minor/result/integration/dual_cuda_verified/training.json",
+      "exists": true,
+      "kind": "file"
+    }
+  ],
+  "archived_png_captures": [],
+  "validator_ui_screenshot": "not archived for these runs; use linked run-specific official validation_report.md and summary.json"
+}

@@ -1,0 +1,7 @@
+﻿model,makespan_seconds,makespan_DD_HH_MM_SS,calculation_seconds,calculation_DD_HH_MM_SS,validator,notes
+01 (Honeycomb),,미측정,,미측정,Validator 미실행,별도 validation STL은 아래 참조
+02 (Spiral),,미측정,,미측정,Validator 미실행,별도 validation STL은 아래 참조
+03 (Triangular truss),,미측정,,미측정,Validator 미실행,별도 validation STL은 아래 참조
+04 (Motor inner),,미측정,,미측정,Validator 미실행,별도 validation STL은 아래 참조
+05 (Twisted shell),,미측정,,미측정,Validator 미실행,별도 validation STL은 아래 참조
+06 (Angle frame),,미측정,,미측정,Validator 미실행,별도 validation STL은 아래 참조

@@ -1,0 +1,22 @@
+{
+  "report": "REPORT.md",
+  "linked_evidence": [
+    {
+      "href": "../../minor3/result/joint_40updates/mid_stroke_example/xy_detours.html",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../minor3/result/joint_40updates/RESULTS.md",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../minor3/result/joint_40updates",
+      "exists": true,
+      "kind": "directory"
+    }
+  ],
+  "archived_png_captures": [],
+  "validator_ui_screenshot": "not archived for these runs; use linked run-specific official validation_report.md and summary.json"
+}

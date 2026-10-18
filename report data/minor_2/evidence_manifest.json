@@ -1,0 +1,89 @@
+{
+  "report": "REPORT.md",
+  "linked_evidence": [
+    {
+      "href": "captures/gantt_01.png",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../minor_2/result/training/reward_only_40updates_20261018_155838/comparison/robot_utilization_report/robot_utilization_comparison.html",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "captures/gantt_02.png",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../minor_2/result/training/reward_only_40updates_20261018_155838/comparison/robot_utilization_report/robot_utilization_comparison.html",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "captures/gantt_03.png",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../minor_2/result/training/reward_only_40updates_20261018_155838/comparison/robot_utilization_report/robot_utilization_comparison.html",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "captures/gantt_04.png",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../minor_2/result/training/reward_only_40updates_20261018_155838/comparison/robot_utilization_report/robot_utilization_comparison.html",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "captures/gantt_05.png",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../minor_2/result/training/reward_only_40updates_20261018_155838/comparison/robot_utilization_report/robot_utilization_comparison.html",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "captures/gantt_06.png",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../minor_2/result/training/reward_only_40updates_20261018_155838/comparison/robot_utilization_report/robot_utilization_comparison.html",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "captures/minor2_robot_utilization_and_gantt.pdf",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../minor_2/result/training/reward_only_40updates_20261018_155838/comparison/original_gantt_comparison.csv",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../minor_2/result/training/reward_only_40updates_20261018_155838/training.json",
+      "exists": true,
+      "kind": "file"
+    }
+  ],
+  "archived_png_captures": [
+    "captures\\gantt_01.png",
+    "captures\\gantt_02.png",
+    "captures\\gantt_03.png",
+    "captures\\gantt_04.png",
+    "captures\\gantt_05.png",
+    "captures\\gantt_06.png"
+  ],
+  "validator_ui_screenshot": "not archived for these runs; use linked run-specific official validation_report.md and summary.json"
+}

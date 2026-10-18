@@ -1,0 +1,45 @@
+{
+  "project": "C:\\Users\\lazzyman\\Desktop\\AINalgos2\\version 1.0.2\\AInalgos2-main",
+  "created_for": "submission report-data organization",
+  "model_aliases": [
+    {
+      "id": "01",
+      "name": "01 (Honeycomb)",
+      "source": "train/01"
+    },
+    {
+      "id": "02",
+      "name": "02 (Spiral)",
+      "source": "train/02"
+    },
+    {
+      "id": "03",
+      "name": "03 (Triangular truss)",
+      "source": "train/03"
+    },
+    {
+      "id": "04",
+      "name": "04 (Motor inner)",
+      "source": "train/04"
+    },
+    {
+      "id": "05",
+      "name": "05 (Twisted shell)",
+      "source": "train/05"
+    },
+    {
+      "id": "06",
+      "name": "06 (Angle frame)",
+      "source": "train/06"
+    }
+  ],
+  "experiments": [
+    "main",
+    "Minor",
+    "minor_2",
+    "scheduler",
+    "Beta",
+    "minor3"
+  ],
+  "evidence_policy": "source result files linked in Markdown; screenshot absence explicitly marked; no evidence fabricated"
+}

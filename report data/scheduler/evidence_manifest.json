@@ -1,0 +1,22 @@
+{
+  "report": "REPORT.md",
+  "linked_evidence": [
+    {
+      "href": "../../scheduler/result/local_repair_40updates/RESULTS.md",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../scheduler/result/local_repair_40updates/gantt_index.html",
+      "exists": true,
+      "kind": "file"
+    },
+    {
+      "href": "../../scheduler/result/local_repair_40updates/training.json",
+      "exists": true,
+      "kind": "file"
+    }
+  ],
+  "archived_png_captures": [],
+  "validator_ui_screenshot": "not archived for these runs; use linked run-specific official validation_report.md and summary.json"
+}
