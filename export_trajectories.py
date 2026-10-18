@@ -1,6 +1,6 @@
 """Export deposited STL from existing, verified trajectories without rerunning PPO.
 
-Example: python export_trajectories.py --evaluation results/layer_evaluation/RUN
+Example: python export_trajectories.py --evaluation result/layer_evaluation/RUN
 """
 from __future__ import annotations
 import argparse

@@ -1,7 +1,7 @@
 """Create reproducible, held-out STL jobs for layer-path validation.
 
 The first job copies the official sample; five new jobs vary footprint topology.
-Run once: python generate_validation_stls.py --output validation_stl
+Run once: python -m tools.generate_validation_stls --output validation
 """
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ import trimesh
 from validator_adapter import VALIDATOR_ROOT
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def sha256(path: Path) -> str:
@@ -73,7 +73,7 @@ def generate(output: Path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=ROOT / "validation_stl")
+    parser.add_argument("--output", type=Path, default=ROOT / "validation")
     args = parser.parse_args()
     manifest = generate(args.output)
     print(f"Created {len(manifest['jobs'])} validation STL jobs under {args.output}")

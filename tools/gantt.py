@@ -1,8 +1,8 @@
-"""Draw Gantt and report timings for a completed stl_files model evaluation.
+"""Draw Gantt charts from an existing train, validation, or test evaluation.
 
 Run from the 1.0.2 project root with the existing ``waam`` Python environment::
 
-    python plot_stl_files_gantt.py
+    python -m tools.gantt --evaluation result/layer_evaluation/RUN
 
 The script reads the archived trajectories and Validator reports. It does not
 run inference again, so the recorded calculation times remain comparable.
@@ -10,6 +10,7 @@ run inference again, so the recorded calculation times remain comparable.
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import html
@@ -20,9 +21,6 @@ import plotly.graph_objects as go
 from plotly.io import to_html
 
 
-ROOT = Path(__file__).resolve().parent
-EVALUATION = ROOT / "results/layer_evaluation/stl_files_20261017_trained_model_runtime"
-OUTPUT = EVALUATION / "gantt"
 MODES = ("T", "D", "W")
 COLORS = {"T": "#2563eb", "D": "#16a34a", "W": "#f59e0b"}
 LABELS = {"T": "이동 T", "D": "적층 D", "W": "대기 W"}
@@ -121,27 +119,35 @@ def figure_for_job(name: str, intervals, makespan: float) -> go.Figure:
     return fig
 
 
-def main() -> None:
-    report = json.loads((EVALUATION / "evaluation.json").read_text(encoding="utf-8"))
-    if report.get("evaluation_source") != "stl" or report.get("split") != "training_set":
-        raise ValueError("Expected a completed stl_files evaluation")
+def main(argv=None) -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--evaluation", type=Path, required=True, help="Completed evaluation folder")
+    parser.add_argument("--output", type=Path, help="Chart folder; defaults to evaluation/gantt")
+    args = parser.parse_args(argv)
+    evaluation = args.evaluation.resolve()
+    output = (args.output or evaluation / "gantt").resolve()
+    report = json.loads((evaluation / "evaluation.json").read_text(encoding="utf-8"))
     if len(report["jobs"]) != report["total_jobs"]:
-        raise ValueError("The stl_files evaluation has not completed")
+        raise ValueError("The evaluation has not completed")
+    if not report["jobs"]:
+        raise ValueError("Evaluation has no jobs")
     model = Path(report["model"])
     digest = hashlib.sha256(model.read_bytes()).hexdigest()
     if digest != report["model_sha256"]:
         raise ValueError("Saved model hash differs from the evaluation record")
-    OUTPUT.mkdir(exist_ok=True)
+    output.mkdir(exist_ok=True)
     rows = []
     summary_rows = []
     charts = []
     for index, job in enumerate(report["jobs"]):
         name = job["id"]
-        episode = EVALUATION / f"job_{index:02d}" / "episode_000"
+        if len(job["episodes"]) != 1:
+            raise ValueError("Gantt currently expects one episode per shape")
+        episode = evaluation / f"job_{index:02d}" / "episode_000"
         official = json.loads((episode / "validation/summary.json").read_text(encoding="utf-8"))
         intervals = read_intervals(episode / "input/trajectory.csv")
         makespan = float(official["schedule"]["makespan_s"])
-        if official["status"] != job["episodes"][0]["status"] or abs(job["episodes"][0]["makespan_s"] - makespan) > 1e-6:
+        if official["status"] != job["episodes"][0]["status"] or abs(float(job["episodes"][0]["makespan_s"]) - makespan) > 1e-6:
             raise ValueError(f"Evaluation and Validator differ for {name}")
         if any(abs(entries[-1][1] - makespan) > 1e-6 for entries in intervals.values()):
             raise ValueError(f"Trajectory and makespan differ for {name}")
@@ -156,13 +162,13 @@ def main() -> None:
         rows.append(row)
         summary_rows.append({key: row[key] for key in ("input", "calculation_time_s", "makespan_s", "validator", "simultaneous_2plus_s", "simultaneous_3_s")})
         fig = figure_for_job(name, intervals, makespan)
-        fig.write_html(OUTPUT / f"{name}_gantt.html", include_plotlyjs=True)
+        fig.write_html(output / f"{name}_gantt.html", include_plotlyjs=True)
         charts.append(to_html(fig, full_html=False, include_plotlyjs=index == 0))
-    with (OUTPUT / "gantt_metrics.csv").open("w", newline="", encoding="utf-8-sig") as stream:
+    with (output / "gantt_metrics.csv").open("w", newline="", encoding="utf-8-sig") as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
         writer.writeheader()
         writer.writerows(rows)
-    with (OUTPUT / "per_shape_results.csv").open("w", newline="", encoding="utf-8-sig") as stream:
+    with (output / "per_shape_results.csv").open("w", newline="", encoding="utf-8-sig") as stream:
         writer = csv.DictWriter(stream, fieldnames=list(summary_rows[0]))
         writer.writeheader()
         writer.writerows(summary_rows)
@@ -172,23 +178,23 @@ def main() -> None:
         f"<td>{row['validator']}</td><td>{row['simultaneous_2plus_s']:.3f}</td>"
         f"<td>{row['simultaneous_3_s']:.3f}</td></tr>" for row in rows)
     page = f"""<!doctype html><html lang='ko'><head><meta charset='utf-8'>
-<title>stl_files 6개 · 학습 모델 Gantt</title><style>
+<title>WAAM 평가 Gantt</title><style>
 body{{font-family:Arial,sans-serif;max-width:1160px;margin:24px auto;padding:0 18px;color:#17233b}}
 table{{border-collapse:collapse;width:100%;margin:18px 0 28px}}th,td{{padding:9px;border:1px solid #d7dce4;text-align:right}}
 th:first-child,td:first-child{{text-align:left}}th{{background:#f1f5f9}}section{{margin:28px 0;border-bottom:1px solid #ddd}}
-</style></head><body><h1>stl_files/01..06 · 1.0.2 학습 모델 Gantt</h1>
+</style></head><body><h1>WAAM 1.0.2 경로 Gantt</h1>
 <p>모델: {html.escape(model.name)} · {report['model_timesteps']} layer steps · T=이동, D=적층, W=대기.
 계산시간은 STL 로딩·슬라이싱·경로 생성·공식 검증·출력까지의 벽시계 시간이며 makespan은 로봇 궤적의 시뮬레이션 시간입니다.
 긴 궤적은 차트 표시만 최대 1500 시간 구간으로 샘플링하며 CSV 지표는 모든 원본 구간으로 계산합니다.</p>
 <table><thead><tr><th>형상</th><th>계산시간 (초)</th><th>Makespan (초)</th><th>Validator</th>
 <th>2대 이상 동시 가동 (초)</th><th>3대 동시 가동 (초)</th></tr></thead>
 <tbody>{table_rows}</tbody></table>{''.join(f'<section>{chart}</section>' for chart in charts)}</body></html>"""
-    (OUTPUT / "index.html").write_text(page, encoding="utf-8")
+    (output / "index.html").write_text(page, encoding="utf-8")
     for row in rows:
         print(f"{row['input']:<16} calc={row['calculation_time_s']:.3f}s "
               f"makespan={row['makespan_s']:.3f}s {row['validator']} "
               f"overlap2+={row['simultaneous_2plus_s']:.3f}s overlap3={row['simultaneous_3_s']:.3f}s")
-    print(f"Gantt: {OUTPUT / 'index.html'}")
+    print(f"Gantt: {output / 'index.html'}")
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@ import numpy as np
 from validator_adapter import VALIDATOR_ROOT, run_validation
 from evaluate_layers import (ENVIRONMENT_SCHEMA, VERSION, discover_scenarios, evaluate_episode,
                              evaluation_jobs, input_hashes, latest_model, load_training, sha256, LayerPathEnv)
-from train_layers import (parser_for_training, snapshot_dataset_inputs, snapshot_inputs,
+from train import (parser_for_training, snapshot_dataset_inputs, snapshot_inputs,
                           validate_args, validation_score)
 
 
@@ -76,7 +76,7 @@ class LayerTrainingTests(unittest.TestCase):
         parser = parser_for_training()
         args = parser.parse_args([])
         self.assertEqual(args.device, "cuda")
-        with patch("train_layers.torch.cuda.is_available", return_value=False), redirect_stderr(io.StringIO()):
+        with patch("train.torch.cuda.is_available", return_value=False), redirect_stderr(io.StringIO()):
             with self.assertRaises(SystemExit):
                 validate_args(parser, args)
             cpu_args = parser.parse_args(["--device", "cpu"])

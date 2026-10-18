@@ -99,7 +99,27 @@ def load_training(model_path: Path) -> tuple[dict, bytes]:
 
 
 def evaluation_jobs(settings: dict, source: str, stl_dir: Path,
-                    validation_dir: Path | None = None) -> list[dict]:
+                    validation_dir: Path | None = None, test_dir: Path | None = None) -> list[dict]:
+    # 공개 split 이름 train은 기존 저장 보고서의 stl 값과 연결한다.
+    if source == "train":
+        source = "stl"
+    if source == "test":
+        # 최종 test는 모델 선택에 사용하지 않은 독립 데이터만 허용한다.
+        directory = (test_dir or ROOT / "test").resolve()
+        originals = discover_scenarios(directory)
+        excluded = {job["input_sha256"]["target.stl"] for job in settings["training_jobs"]}
+        for job in settings.get("validation_jobs", [settings.get("validation_job")]):
+            if job:
+                excluded.add(job["input_sha256"]["target.stl"])
+        for folder in (stl_dir, validation_dir or ROOT / "validation"):
+            if Path(folder).is_dir():
+                excluded.update(input_hashes(path)["target.stl"] for path in discover_scenarios(Path(folder)))
+        hashes = [input_hashes(path) for path in originals]
+        targets = [item["target.stl"] for item in hashes]
+        if len(set(targets)) != len(targets) or excluded.intersection(targets):
+            raise ValueError("Test STL must be unique and disjoint from train/validation")
+        return [dict(id=path.name, source=str(path), scenario=str(path), input_sha256=digest)
+                for path, digest in zip(originals, hashes)]
     if source == "example":
         jobs = [settings["validation_job"]]
     elif source == "stl":
@@ -110,7 +130,7 @@ def evaluation_jobs(settings: dict, source: str, stl_dir: Path,
             raise ValueError("stl_files inputs differ from this run's training data")
         jobs = settings["training_jobs"]
     elif source == "validation":
-        validation_dir = (validation_dir or ROOT / "validation_stl").resolve()
+        validation_dir = (validation_dir or ROOT / "validation").resolve()
         originals = discover_scenarios(validation_dir)
         current = [input_hashes(path) for path in originals]
         training_targets = {job["input_sha256"]["target.stl"] for job in settings["training_jobs"]}
@@ -255,16 +275,21 @@ def summarize(records: list[dict]) -> dict:
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--runs-dir", type=Path, default=ROOT / "results/training")
+    parser.add_argument("--runs-dir", type=Path, default=ROOT / "result/training")
     parser.add_argument("--model", type=Path, help="Explicit model ZIP with adjacent training.json")
-    parser.add_argument("--eval-source", choices=("example", "validation", "stl"), default="example")
-    parser.add_argument("--stl-dir", type=Path, default=ROOT / "stl_files")
-    parser.add_argument("--validation-dir", type=Path, default=ROOT / "validation_stl")
+    # --split은 평가할 입력 종류이며, --eval-source는 이전 명령 호환용이다.
+    split_group = parser.add_mutually_exclusive_group()
+    split_group.add_argument("--split", choices=("train", "test"), help="Input dataset to evaluate")
+    split_group.add_argument("--eval-source", choices=("stl", "test"))
+    parser.add_argument("--test-dir", type=Path, default=ROOT / "test", help="Independent final-test STL/config jobs")
+    parser.add_argument("--stl-dir", type=Path, default=ROOT / "train")
+    parser.add_argument("--validation-dir", type=Path, default=ROOT / "validation")
     parser.add_argument("--episodes", type=int, default=1, help="Episodes per shape")
     parser.add_argument("--seed", type=int)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args(argv)
+    args.eval_source = {"train": "stl"}.get(args.split, args.split) or args.eval_source or "test"
     if args.episodes < 1:
         parser.error("episodes must be positive")
     if args.device.startswith("cuda") and not torch.cuda.is_available():
@@ -272,14 +297,14 @@ def main(argv=None):
     try:
         model_path = args.model.resolve() if args.model else latest_model(args.runs_dir.resolve())
         settings, model_bytes = load_training(model_path)
-        jobs = evaluation_jobs(settings, args.eval_source, args.stl_dir.resolve(), args.validation_dir.resolve())
+        jobs = evaluation_jobs(settings, args.eval_source, args.stl_dir.resolve(), args.validation_dir.resolve(), args.test_dir.resolve())
         weights = LayerRewardWeights(**settings["reward_weights"])
     except (OSError, ValueError, KeyError, TypeError, zipfile.BadZipFile) as exc:
         parser.error(str(exc))
     seed = args.seed if args.seed is not None else settings["ppo"]["seed"] + 10000
     if not 0 <= seed < 2**32 - args.episodes + 1:
         parser.error("seed and episode seeds must be in [0, 2**32)")
-    output = (args.output or ROOT / "results/layer_evaluation" /
+    output = (args.output or ROOT / "result/layer_evaluation" /
               datetime.now().strftime("%Y%m%d_%H%M%S_%f")).resolve()
     if output.exists():
         parser.error("Choose a new output directory; existing results are not overwritten")
@@ -292,7 +317,7 @@ def main(argv=None):
                   model_timesteps=model.num_timesteps, training=settings,
                   actual_device=str(model.device), evaluation_source=args.eval_source,
                   split={"example": "validation_sample", "validation": "validation_set",
-                         "stl": "training_set"}[args.eval_source],
+                         "stl": "training_set", "test": "test_set"}[args.eval_source],
                   deterministic=True, reward_weights=asdict(weights), step_unit="layer",
                   reward_formula="utilization_weighted_time_v1",
                   training_reward_formula=settings.get("reward_formula", "unweighted_time_v1"),

@@ -1,6 +1,6 @@
-"""Time each validation STL and report official Validator makespan and status.
+"""Legacy filename: time each independent test STL and report official Validator makespan and status.
 
-python benchmark_validation_stls.py [--model path/to/ppo_model.zip] [--device cuda]
+python -m tools.benchmark [--model path/to/ppo_model.zip] [--device cuda]
 """
 from __future__ import annotations
 import argparse
@@ -28,7 +28,7 @@ def verify_dataset(directory: Path) -> list[Path]:
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--validation-dir", type=Path, default=ROOT / "validation_stl")
+    parser.add_argument("--test-dir", type=Path, default=ROOT / "test")
     parser.add_argument("--model", type=Path)
     parser.add_argument("--runs-dir", type=Path)
     parser.add_argument("--output", type=Path)
@@ -36,9 +36,10 @@ def main(argv=None):
     parser.add_argument("--episodes", type=int, default=1)
     parser.add_argument("--seed", type=int)
     args = parser.parse_args(argv)
-    jobs = verify_dataset(args.validation_dir)
+    # test 폴더는 사용자 입력이며 manifest가 없어도 평가할 수 있다.
+    jobs = discover_scenarios(args.test_dir)
     print(f"Verified {len(jobs)} held-out STL jobs", flush=True)
-    forwarded = ["--eval-source", "validation", "--validation-dir", str(args.validation_dir),
+    forwarded = ["--split", "test", "--test-dir", str(args.test_dir),
                  "--device", args.device, "--episodes", str(args.episodes)]
     for flag, value in (("--model", args.model), ("--runs-dir", args.runs_dir),
                         ("--output", args.output), ("--seed", args.seed)):
@@ -64,7 +65,7 @@ def main(argv=None):
         print(f"{row['input']:<18} {row['calculation_time_s']:>15.3f}  "
               f"{makespan:>12}  {row['validator_status']}", flush=True)
     print(f"CSV: {output / 'per_shape_results.csv'}", flush=True)
-    print(f"Validation set: {report['summary']['pass_rate']:.1%} PASS "
+    print(f"Test set: {report['summary']['pass_rate']:.1%} PASS "
           f"({report['summary']['episodes']} episodes)", flush=True)
     return report
 

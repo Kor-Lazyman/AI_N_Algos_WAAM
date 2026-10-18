@@ -1,11 +1,36 @@
 # WAAM 레이어 경로 생성 · AInalgos2 1.0.2
 
+## 실행 및 폴더 구성
+
+학습 진입점은 `train.py` 하나입니다. 기존 `train_layers.py`, `train_stl.py`는 통합했습니다.
+
+```text
+AInalgos2-main/
+  train.py       # 학습 실행
+  train/         # 학습 STL 6개와 각 config.yaml
+  validation/    # 검증 STL 6개와 manifest
+  test/          # 독립 최종 평가 STL 입력 (사용자가 추가)
+  tests/         # 코드 회귀 테스트
+  result/        # 모델, 평가 보고서, trajectory, STL, TensorBoard
+  environment/   # 공식 Validator
+```
+
+```powershell
+conda activate waam
+python train.py --mode train --device cuda
+python train.py --mode test --device cuda  # test/에 STL/config 추가 후 실행
+tensorboard --logdir result/tensorboard
+```
+
+기존 모델과 입력 사본은 `result/`로 옮겼으며, 저장된 JSON의 이 프로젝트 내부 경로도 새 위치로 갱신했습니다. 모델 ZIP과 STL/config 내용은 유지됩니다.
+
+
 **PPO의 1 step이 한 레이어의 적층 경로 생성과 세 로봇의 작업 분담입니다.** STL을 높이별로 슬라이싱한 뒤, 정책이 레이어마다 채움 방향·간격·경로 순서·로봇 분담을 결정합니다. 경로 생성기가 그 행동을 실제 좌표와 시간표로 바꾸고, 해당 레이어를 검증해 보상을 계산합니다.
 
 프로젝트 버전은 `1.0.2`, 환경 스키마는 `layer_path_v1`입니다. 내장 공식 Validator 버전은 기존 `1.0.1`을 유지합니다. 이 폴더는 `version 1.0.2/AInalgos2-main`으로 분리되어 독립 실행됩니다. 기존 선분 학습 코드는 형제 폴더 `version 1.0.1/AInalgos2-main`에 남아 있습니다. 기존 Conda `waam` 환경을 그대로 사용하며 `environment/`, STL 입력, 모델 및 결과를 함께 보존했습니다.
 
 ```text
-stl_files의 config.yaml + target.stl
+train/의 config.yaml + target.stl
   → STL 슬라이싱: 레이어별 목표 단면 준비
   → PPO 행동: 현재 레이어의 경로 생성 설정 + 세 로봇 분담
   → 윤곽·채움 경로 생성 → 이동·적층·귀환 일정 생성
@@ -14,7 +39,7 @@ stl_files의 config.yaml + target.stl
   → 마지막 레이어 완료: 전체 궤적을 공식 Validator로 검증
 ```
 
-학습 입력은 `stl_files/01..06`이고 검증 입력은 [validation_stl](validation_stl)의 6개 독립 형상입니다. 검증 세트에는 기존 sample 1개와 새 STL 5개가 포함됩니다. 사전 생성한 `tasks.json`을 사용하지 않습니다. STL 단면만 미리 준비하며, 적층 선분은 매 step의 행동으로 생성합니다.
+학습 입력은 `train/01..06`이고 검증 입력은 [validation](validation)의 6개 독립 형상입니다. 검증 세트에는 기존 sample 1개와 새 STL 5개가 포함됩니다. 사전 생성한 `tasks.json`을 사용하지 않습니다. STL 단면만 미리 준비하며, 적층 선분은 매 step의 행동으로 생성합니다.
 
 ## 실행
 
@@ -24,12 +49,12 @@ stl_files의 config.yaml + target.stl
 conda activate waam
 
 # STL 6개로 학습, 별도 검증 STL 6개로 주기적 검증
-python train_layers.py --device cuda
+python train.py --device cuda
 
 # 저장 모델을 검증 세트 전체에서 테스트
-python benchmark_validation_stls.py --device cuda
+python train.py --mode test --device cuda
 
-# 가장 최근 완료된 1.0.2 모델을 example에서 평가
+# 가장 최근 완료된 1.0.2 모델을 test 입력으로 평가
 python evaluate_layers.py --device cuda
 
 # 동일 모델을 학습 STL 6개에서 평가
@@ -40,37 +65,37 @@ python evaluate_layers.py --eval-source stl --device cuda
 
 ```powershell
 python train.py
-python train_stl.py
-python evaluate_latest.py
-python evaluate_stl.py
+python train.py
+python evaluate_layers.py --split test
+python evaluate_layers.py --split train
 ```
 
-`train.py`와 `train_stl.py`는 모두 `train_layers.py`로, `evaluate_latest.py`는 example 평가로, `evaluate_stl.py`는 STL 평가로 연결됩니다. 선분 학습은 기존 1.0.1 폴더에서 실행합니다. 레이어 모델은 관측·행동 공간이 달라서 기존 선분 모델을 그대로 이어 학습하거나 평가할 수 없습니다.
+학습은 `train.py --mode train`, 최종 평가는 `train.py --mode test`로 실행합니다. 기존 `evaluate_latest.py`는 test 평가로, `evaluate_stl.py`는 학습 STL 재평가로 연결됩니다. 선분 학습은 기존 1.0.1 폴더에서 실행합니다. 레이어 모델은 관측·행동 공간이 달라서 기존 선분 모델을 그대로 이어 학습하거나 평가할 수 없습니다.
 
 짧은 실행 연결 확인 및 모델 지정 평가:
 
 ```powershell
-python train_layers.py --timesteps 8 --n-steps 8 --batch-size 4 --eval-every 1 --no-export-stl --output results/training/my_layer_run
-python evaluate_layers.py --model results/training/my_layer_run/ppo_model.zip
-python evaluate_layers.py --model results/training/my_layer_run/ppo_model.zip --eval-source stl
+python train.py --timesteps 8 --n-steps 8 --batch-size 4 --eval-every 1 --no-export-stl --output result/training/my_layer_run
+python evaluate_layers.py --model result/training/my_layer_run/ppo_model.zip
+python evaluate_layers.py --model result/training/my_layer_run/ppo_model.zip --eval-source stl
 ```
 
 `--output`은 새 경로여야 합니다. 기존 결과를 덮어쓰지 않습니다. 전체 옵션은 각 스크립트의 `--help`로 확인할 수 있습니다. 새 Python 환경에서는 `python -m pip install -r requirements.txt`로 의존성을 설치합니다.
 
 ## 검증용 STL 데이터셋
 
-`validation_stl/00_sample`은 내장 sample의 사본입니다. 추가한 `01_rectangle`(2층), `02_triangle`(1층), `03_l_shape`(2층), `04_cross`(1층), `05_ring`(구멍이 있는 1층)은 [생성 코드](generate_validation_stls.py)로 만들었습니다. 각 폴더에는 `config.yaml`과 `target.stl`이 있고 [manifest.json](validation_stl/manifest.json)에 SHA-256과 메쉬 경계를 기록했습니다. 학습 STL 6개와 검증 STL의 목표 STL 해시가 겹치지 않는지 검사합니다.
+`validation/00_sample`은 내장 sample의 사본입니다. 추가한 `01_rectangle`(2층), `02_triangle`(1층), `03_l_shape`(2층), `04_cross`(1층), `05_ring`(구멍이 있는 1층)은 [생성 코드](tools/generate_validation_stls.py)로 만들었습니다. 각 폴더에는 `config.yaml`과 `target.stl`이 있고 [manifest.json](validation/manifest.json)에 SHA-256과 메쉬 경계를 기록했습니다. 학습 STL 6개와 검증 STL의 목표 STL 해시가 겹치지 않는지 검사합니다.
 
-새 학습은 이 6개를 모두 입력 사본으로 고정하고, 검증 시점마다 각 형상을 한 번씩 공식 Validator로 검사합니다. best 모델의 PASS 비율도 검증 세트 전체의 평균입니다. `--validation-dir 경로`로 다른 검증 세트를 지정할 수 있습니다. 기존 학습 결과는 당시 sample 검증 기록을 유지하며, `benchmark_validation_stls.py`로 새 세트를 별도 평가할 수 있습니다. 이 세트는 모델 선택에 사용되므로 독립된 최종 test set으로 해석하면 안 됩니다.
+새 학습은 이 6개를 모두 입력 사본으로 고정하고, 검증 시점마다 각 형상을 한 번씩 공식 Validator로 검사합니다. best 모델의 PASS 비율도 검증 세트 전체의 평균입니다. `--validation-dir 경로`로 다른 검증 세트를 지정할 수 있습니다. 기존 학습 결과는 당시 sample 검증 기록을 유지하며, 독립 최종 평가는 `test/`에 별도 입력을 넣어 실행합니다. 이 세트는 모델 선택에 사용되므로 독립된 최종 test set으로 해석하면 안 됩니다.
 
 ```powershell
-python benchmark_validation_stls.py --model results/training/layers_1.0.2_20261017_run01/ppo_model.zip --device cuda
-python -m unittest test_layer_assignment test_layer_training test_validation_dataset -v
+python train.py --mode test --model result/training/layers_1.0.2_20261017_run01/ppo_model.zip --device cuda
+python -m unittest discover -s tests -v
 ```
 
-검증 실행은 형상별 `trajectory.csv`, 공식 보고서, PASS/FAIL을 `results/layer_evaluation/<시각>/`에 저장합니다. 검증을 통과한 경로의 `deposited.stl`도 저장합니다. `benchmark_validation_stls.py`는 각 입력의 **STL 로딩·슬라이싱부터 경로 생성·검증·에피소드 결과 저장까지**의 실제 계산 시간, 공식 Validator의 makespan(시뮬레이션 시간), PASS/FAIL을 화면과 `per_shape_results.csv`에 기록합니다. [실행 결과](results/layer_evaluation/validation_stl_20261017_baseline/evaluation.json)에서는 저장된 128-step 모델의 검증 형상 6개가 모두 PASS했습니다. 새 idle 보상과 검증 세트로 학습한 정책의 일반화 결과는 별도 학습 후 다시 평가해야 합니다.
+검증 실행은 형상별 `trajectory.csv`, 공식 보고서, PASS/FAIL을 `result/layer_evaluation/<시각>/`에 저장합니다. 검증을 통과한 경로의 `deposited.stl`도 저장합니다. `benchmark_validation_stls.py`는 각 입력의 **STL 로딩·슬라이싱부터 경로 생성·검증·에피소드 결과 저장까지**의 실제 계산 시간, 공식 Validator의 makespan(시뮬레이션 시간), PASS/FAIL을 화면과 `per_shape_results.csv`에 기록합니다. [실행 결과](result/layer_evaluation/validation_stl_20261017_baseline/evaluation.json)에서는 저장된 128-step 모델의 검증 형상 6개가 모두 PASS했습니다. 새 idle 보상과 검증 세트로 학습한 정책의 일반화 결과는 별도 학습 후 다시 평가해야 합니다.
 
-현재 최신 완료 모델(1,024 step)을 2026-10-17에 다시 실행한 [형상별 계산 시간·makespan·Validator 결과 CSV](results/layer_evaluation/validation_stl_20261017_latest_runtime/per_shape_results.csv)도 있습니다. 6개 모두 PASS했습니다. 계산 시간은 모델을 메모리에 불러온 뒤 **각 형상을 처리하는 실제 벽시계 시간**이며, makespan은 로봇 궤적의 시뮬레이션 시간입니다. 이 모델 역시 idle 보상 변경 전 학습된 가중치입니다.
+현재 최신 완료 모델(1,024 step)을 2026-10-17에 다시 실행한 [형상별 계산 시간·makespan·Validator 결과 CSV](result/layer_evaluation/validation_stl_20261017_latest_runtime/per_shape_results.csv)도 있습니다. 6개 모두 PASS했습니다. 계산 시간은 모델을 메모리에 불러온 뒤 **각 형상을 처리하는 실제 벽시계 시간**이며, makespan은 로봇 궤적의 시뮬레이션 시간입니다. 이 모델 역시 idle 보상 변경 전 학습된 가중치입니다.
 
 ## 검증 후 6개 형상의 경로 및 STL 저장
 
@@ -83,19 +108,19 @@ python -m unittest test_layer_assignment test_layer_training test_validation_dat
 
 STL은 레이어별 명목 적층 체적을 합친 메쉬이며, 레이어 경계의 내부 면을 제거하는 CAD boolean union이나 열변형 계산은 수행하지 않습니다. 실제 로봇 경로 정보는 반드시 `trajectory.csv`를 사용합니다.
 
-**기존 128 step 모델의 검증 통과 경로 6개와 STL:** [results/exports/stl_01_06](results/exports/stl_01_06). 하위 `01`~`06`에 각각 `trajectory.csv`, `deposited.stl`, 원본 입력 및 검증 요약이 있습니다. [manifest.json](results/exports/stl_01_06/manifest.json)에 파일과 해시를 기록했습니다.
+**기존 128 step 모델의 검증 통과 경로 6개와 STL:** [result/exports/stl_01_06](result/exports/stl_01_06). 하위 `01`~`06`에 각각 `trajectory.csv`, `deposited.stl`, 원본 입력 및 검증 요약이 있습니다. [manifest.json](result/exports/stl_01_06/manifest.json)에 파일과 해시를 기록했습니다.
 
 저장된 검증 경로에서 다시 STL과 배포용 폴더를 생성하려면:
 
 ```powershell
-python export_trajectories.py --evaluation results/layer_evaluation/layers_1.0.2_20261017_run01 --output results/exports/my_export
+python export_trajectories.py --evaluation result/layer_evaluation/layers_1.0.2_20261017_run01 --output result/exports/my_export
 ```
 
 ## 한 step의 행동과 경로
 
 ### TensorBoard 모니터링
 
-1.0.2 학습은 TensorBoard 로그를 기본으로 저장합니다. `train.py`와 `train_stl.py`에도 동일하게 적용됩니다. 학습과 TensorBoard는 각각 별도 터미널에서 실행합니다.
+1.0.2 학습은 TensorBoard 로그를 기본으로 저장합니다. `train.py`와 `train.py`에도 동일하게 적용됩니다. 학습과 TensorBoard는 각각 별도 터미널에서 실행합니다.
 
 ```powershell
 # 터미널 1: AInalgos2-main 디렉터리
@@ -104,7 +129,7 @@ python train.py --device cuda --timesteps 1024 --n-steps 64 --batch-size 32 --ev
 
 # 터미널 2: 같은 디렉터리
 conda activate waam
-python -m tensorboard.main --logdir results/tensorboard --host 127.0.0.1 --port 6006
+python -m tensorboard.main --logdir result/tensorboard --host 127.0.0.1 --port 6006
 ```
 
 브라우저에서 `http://localhost:6006`을 엽니다. 새 학습마다 별도 run으로 기록하며 정확한 이벤트 폴더는 `training.json`의 `tensorboard_log`에 저장합니다. `--tensorboard-log 경로`로 로그 루트를 바꾸거나 `--no-tensorboard`로 끌 수 있습니다. 새 환경에서는 `python -m pip install -r requirements.txt`를 실행합니다.
@@ -195,7 +220,7 @@ reference_layer = max(1,
 
 PPO 신경망 추론과 학습은 CUDA에서 실행합니다. 슬라이싱·경로 생성·Shapely 형상 계산·공식 Validator는 CPU에서 실행합니다. CUDA가 없으면 자동으로 CPU로 바꾸지 않고 오류를 반환합니다. CPU를 사용하려면 `--device cpu`를 명시합니다. 한 step의 의미가 선분에서 레이어로 바뀌었으므로 이전 버전의 step/s나 같은 timesteps를 그대로 비교할 수 없습니다.
 
-기본 학습 저장 위치는 `results/training/layers_1.0.2_<시각>/`입니다.
+기본 학습 저장 위치는 `result/training/layers_1.0.2_<시각>/`입니다.
 
 | 파일 | 내용 |
 | --- | --- |
@@ -210,7 +235,7 @@ PPO 신경망 추론과 학습은 CUDA에서 실행합니다. 슬라이싱·경�
 
 기본 평가는 최신 **완료된 1.0.2 실행의 `ppo_model.zip`**을 선택합니다. 최신 모델은 최고 성능 모델을 뜻하지 않습니다. 학습 중인 체크포인트나 best 모델은 `--model`로 직접 지정할 수 있습니다. 평가는 기본 CUDA, 형상당 1회, `deterministic=True`이고 학습하지 않습니다.
 
-평가 결과는 `results/layer_evaluation/<시각>/`에 저장합니다.
+평가 결과는 `result/layer_evaluation/<시각>/`에 저장합니다.
 
 - `model_snapshot.zip`: 평가에 실제 사용한 모델 사본.
 - `evaluation.json`: 입력·모델 해시, split, 형상별/전체 완료율·PASS 비율·보상 등.
@@ -218,7 +243,7 @@ PPO 신경망 추론과 학습은 CUDA에서 실행합니다. 슬라이싱·경�
 - `job_XX/episode_XXX/episode.json`: 에피소드 요약과 전체 레이어 추적.
 - 완료된 에피소드의 `input/trajectory.csv` 및 `validation/`: 생성한 경로와 공식 Validator 보고서.
 
-완료하지 못한 일정은 `INFEASIBLE`, 완료 후 공식 결과는 `PASS`/`FAIL`, 검증 오류는 `ERROR`로 기록합니다. 저장된 입력 사본의 해시를 확인하며, `--eval-source stl`은 현재 `stl_files`와 학습 당시 입력의 해시가 같은지도 확인합니다. `--eval-source validation`은 새 학습 모델에서 고정된 검증 STL 해시를 확인합니다. STL 학습 형상의 재평가를 일반화 성능으로 해석하면 안 됩니다.
+완료하지 못한 일정은 `INFEASIBLE`, 완료 후 공식 결과는 `PASS`/`FAIL`, 검증 오류는 `ERROR`로 기록합니다. 저장된 입력 사본의 해시를 확인하며, `--eval-source stl`은 현재 `train`와 학습 당시 입력의 해시가 같은지도 확인합니다. validation 입력은 학습 중 고정된 사본과 해시를 사용합니다. STL 학습 형상의 재평가를 일반화 성능으로 해석하면 안 됩니다.
 
 로그의 `ep_len_mean`은 **에피소드당 시도한 레이어 step 수 평균**, `ep_rew_mean`은 에피소드 총보상 평균입니다. 학습 로그는 Monitor가 집계하는 최근 에피소드 기준이고, 평가 보고서는 해당 평가 전체 에피소드 기준입니다. `makespan_s`는 시뮬레이션 일정 시간이며 실제 처리 시간인 `wall_time_s`와 구분합니다.
 
@@ -227,26 +252,25 @@ PPO 신경망 추론과 학습은 CUDA에서 실행합니다. 슬라이싱·경�
 | 파일 | 역할 |
 | --- | --- |
 | [layer_assignment_env.py](layer_assignment_env.py) | 레이어 슬라이싱·행동에 따른 경로 생성·3로봇 일정·보상·최종 공식 검사 |
-| [train_layers.py](train_layers.py) | STL 학습/다중 STL 검증, CUDA PPO, 체크포인트·best·최종 모델 저장 |
-| [evaluate_layers.py](evaluate_layers.py) | 최신 레이어 모델 선택, example/검증/STL 평가와 경로·보고서 저장 |
-| [generate_validation_stls.py](generate_validation_stls.py) | 검증용 형상과 해시 manifest 생성 |
-| [benchmark_validation_stls.py](benchmark_validation_stls.py) | 검증 STL별 계산 시간·makespan·Validator 결과 출력 및 CSV 저장 |
-| [run_validation_set.py](run_validation_set.py) | 기존 명령을 위한 호환 진입점 |
-| [test_layer_assignment.py](test_layer_assignment.py) | 레이어 환경·행동·도달·보상·검증 회귀 검사 |
-| [test_layer_training.py](test_layer_training.py), [test_validation_dataset.py](test_validation_dataset.py) | 학습·평가 및 검증 데이터셋 검사 |
+| [train.py](train.py) | STL 학습/다중 STL 검증, CUDA PPO, 체크포인트·best·최종 모델 저장 |
+| [evaluate_layers.py](evaluate_layers.py) | 최신 레이어 모델 선택, test/STL 평가와 경로·보고서 저장 |
+| [tools/generate_validation_stls.py](tools/generate_validation_stls.py) | 검증용 형상과 해시 manifest 생성 |
+| [tools/benchmark.py](tools/benchmark.py) | test STL별 계산 시간·makespan·Validator 결과 CSV 저장 |
+| [test_layer_assignment.py](tests/test_layer_assignment.py) | 레이어 환경·행동·도달·보상·검증 회귀 검사 |
+| [test_layer_training.py](tests/test_layer_training.py), [test_validation_dataset.py](tests/test_validation_dataset.py) | 학습·평가 및 검증 데이터셋 검사 |
 | [validator_adapter.py](validator_adapter.py) | 내장 Validator 연결과 궤적 자료 변환 |
 | [export_trajectories.py](export_trajectories.py) | 검증 입력 해시 확인, trajectory로부터 적층 STL 생성 |
 | [environment/src/waam_validator](environment/src/waam_validator) | 공식 Validator backend |
 
 ```powershell
-python -m unittest test_layer_assignment test_layer_training test_validation_dataset -v
+python -m unittest discover -s tests -v
 ```
 
 경로의 가능한 형태는 현재 윤곽·채움 생성기와 7개 행동 설정에 한정됩니다. 형상 평가는 명목 비드 단면의 합집합이며 열변형·온도·실제 재료 거동을 예측하지 않습니다. 충돌 판정은 Validator의 arm envelope/TCP 및 시간·거리 샘플링 모델을 따르며 실제 로봇의 전체 관절 운동학을 대신하지 않습니다. 직렬 대체 일정은 실행 가능성을 높이는 절차이고, 병렬 사용률이나 시간 최적성을 보장하지 않습니다.
 
 관련 문서: [Validator 방법론](environment/docs/validation-method.md), [설정 참조](environment/docs/config-reference.md), [결과 해석](environment/docs/results-reference.md).
 
-이전 1.0.1 선분 학습은 형제 폴더 `version 1.0.1/AInalgos2-main`에 보관합니다. 1.0.2 실행 루트의 일회성 이동 검증·과거 결과표 생성 코드는 [migration 이력](results/migration/ARCHIVE.md)으로 옮겼습니다. `environment/`의 Validator 1.0.1 코드는 현재 학습·평가에도 필요합니다.
+이전 1.0.1 선분 학습은 형제 폴더 `version 1.0.1/AInalgos2-main`에 보관합니다. 1.0.2 실행 루트의 일회성 이동 검증·과거 결과표 생성 코드는 [migration 이력](result/migration/ARCHIVE.md)으로 옮겼습니다. `environment/`의 Validator 1.0.1 코드는 현재 학습·평가에도 필요합니다.
 
 ## 2026-10-17 실행 결과
 
@@ -256,9 +280,35 @@ RTX 3070 Ti Laptop GPU에서 CUDA로 **128 레이어 step 학습을 106.06초에
 
 이 128 step은 동작 확인용이며 수렴 학습이 아닙니다. 이번 학습 rollout은 01·02·05에 각각 6·8·114 step을 사용했고, 평가는 STL 6개 전체를 수행했습니다. STL 평가 실행 중 최종 검증 중복을 제거했으므로 해당 STL 실행 시간에는 이전 중복 검증 비용이 포함됩니다. 최종 코드와 별도 sample 재평가는 저장된 공식 결과 및 입력 해시를 확인해 전체 검증을 한 번만 수행합니다.
 
-- [실행 결과표와 경로·보고서 위치](results/layer_evaluation/layers_1.0.2_20261017_run01/RUN_RESULT.md)
-- [저장 학습 모델](results/training/layers_1.0.2_20261017_run01/ppo_model.zip)
-- [학습 설정·실제 CUDA 장치·소요 시간](results/training/layers_1.0.2_20261017_run01/training.json)
-- [STL 전체 평가 JSON](results/layer_evaluation/layers_1.0.2_20261017_run01/evaluation.json)
-- [sample 평가 JSON](results/layer_evaluation/layers_1.0.2_20261017_sample/evaluation.json)
-- [테스트 결과](results/integration/layer_v102_tests.json)
+- [실행 결과표와 경로·보고서 위치](result/layer_evaluation/layers_1.0.2_20261017_run01/RUN_RESULT.md)
+- [저장 학습 모델](result/training/layers_1.0.2_20261017_run01/ppo_model.zip)
+- [학습 설정·실제 CUDA 장치·소요 시간](result/training/layers_1.0.2_20261017_run01/training.json)
+- [STL 전체 평가 JSON](result/layer_evaluation/layers_1.0.2_20261017_run01/evaluation.json)
+- [sample 평가 JSON](result/layer_evaluation/layers_1.0.2_20261017_sample/evaluation.json)
+- [테스트 결과](result/integration/layer_v102_tests.json)
+
+## 실행 모드: train / test
+
+```powershell
+python train.py --mode train --device cuda
+python train.py --mode test --device cuda
+```
+
+- `train/`: PPO 학습 입력입니다.
+- `validation/`: 학습 중 주기적으로 평가하고 best 모델을 선택하는 입력입니다. 별도 실행 모드는 없습니다.
+- `test/`: 학습·모델 선택에 사용하지 않은 최종 평가 입력입니다. 현재 STL이 없으므로 `test/<형상이름>/target.stl`과 `config.yaml`을 추가해야 합니다.
+- `result/`: 학습 모델과 평가 결과를 저장합니다.
+- `tests/`: 코드 회귀 테스트입니다.
+
+기본 모드는 train입니다. `--mode train --validation-dir 경로`로 학습 중 검증 입력을 지정합니다. `--mode test --test-dir 경로 --model 모델.zip`으로 최종 평가 입력과 모델을 지정합니다. 모델을 생략하면 최신 완료 모델을 사용합니다. best 모델을 시험하려면 해당 `best_model.zip`을 명시하세요. test 입력은 학습 및 검증 입력과 해시가 겹치지 않아야 합니다.
+
+## 결과 분석 도구
+
+학습과 최종 평가는 루트 `train.py`로 실행합니다. 저장된 결과를 다시 학습하지 않고 분석할 때는 다음 도구를 사용합니다.
+
+```powershell
+python -m tools.gantt --evaluation result/layer_evaluation/<평가 폴더>
+python -m tools.benchmark --test-dir test --device cuda
+```
+
+`tools/gantt.py`는 train·validation·test 평가 결과의 `trajectory.csv`와 Validator 보고서를 읽어 Gantt HTML 및 시간 CSV를 만듭니다. 긴 궤적은 차트 표시만 축약하며 계산 지표는 전체 구간을 사용합니다. `tools/benchmark.py`는 test 평가를 실행하고 형상별 계산 시간·makespan·Validator 상태를 CSV로 저장합니다. 검증 형상을 재생성할 때만 `python -m tools.generate_validation_stls --output <새 폴더>`를 사용하세요.

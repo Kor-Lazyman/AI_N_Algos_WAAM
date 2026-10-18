@@ -5,15 +5,15 @@ import unittest
 import trimesh
 
 from evaluate_layers import ROOT, discover_scenarios, input_hashes
-from run_validation_set import verify_dataset
+from tools.benchmark import verify_dataset
 
 
 class ValidationDatasetTests(unittest.TestCase):
     def test_manifest_meshes_and_split_are_valid(self):
-        directory = ROOT / "validation_stl"
+        directory = ROOT / "validation"
         jobs = verify_dataset(directory)
         self.assertEqual(len(jobs), 6)
-        training = discover_scenarios(ROOT / "stl_files")
+        training = discover_scenarios(ROOT / "train")
         train_targets = {input_hashes(path)["target.stl"] for path in training}
         validation_targets = [input_hashes(path)["target.stl"] for path in jobs]
         self.assertEqual(len(set(validation_targets)), len(jobs))
